@@ -1,0 +1,178 @@
+[
+  {
+    "word_id": "w001",
+    "text": "Welcome",
+    "start": 0.3,
+    "end": 0.75,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w002",
+    "text": "to",
+    "start": 0.77,
+    "end": 0.91,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w003",
+    "text": "the",
+    "start": 0.92,
+    "end": 1.04,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w004",
+    "text": "channel.",
+    "start": 1.05,
+    "end": 1.62,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w005",
+    "text": "Today",
+    "start": 2.3,
+    "end": 2.7,
+    "speaker": "host",
+    "confidence": 0.72
+  },
+  {
+    "word_id": "w006",
+    "text": "we",
+    "start": 2.72,
+    "end": 2.86,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w007",
+    "text": "discuss",
+    "start": 2.88,
+    "end": 3.45,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w008",
+    "text": "pricing",
+    "start": 4.0,
+    "end": 4.55,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w009",
+    "text": "and",
+    "start": 4.57,
+    "end": 4.72,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w010",
+    "text": "cost.",
+    "start": 4.74,
+    "end": 5.2,
+    "speaker": "host",
+    "confidence": 0.72
+  },
+  {
+    "word_id": "w011",
+    "text": "I",
+    "start": 6.0,
+    "end": 6.12,
+    "speaker": "guest",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w012",
+    "text": "think",
+    "start": 6.13,
+    "end": 6.45,
+    "speaker": "guest",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w013",
+    "text": "pricing",
+    "start": 7.0,
+    "end": 7.45,
+    "speaker": "guest",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w014",
+    "text": "matters.",
+    "start": 7.47,
+    "end": 7.95,
+    "speaker": "guest",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w015",
+    "text": "Um,",
+    "start": 9.0,
+    "end": 9.28,
+    "speaker": "host",
+    "confidence": 0.72
+  },
+  {
+    "word_id": "w016",
+    "text": "like",
+    "start": 9.6,
+    "end": 9.88,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w017",
+    "text": "we",
+    "start": 10.0,
+    "end": 10.13,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w018",
+    "text": "can",
+    "start": 10.15,
+    "end": 10.37,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w019",
+    "text": "help.",
+    "start": 10.39,
+    "end": 10.78,
+    "speaker": "host",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w020",
+    "text": "Thanks",
+    "start": 12.8,
+    "end": 13.2,
+    "speaker": "guest",
+    "confidence": 0.72
+  },
+  {
+    "word_id": "w021",
+    "text": "for",
+    "start": 13.22,
+    "end": 13.38,
+    "speaker": "guest",
+    "confidence": 0.97
+  },
+  {
+    "word_id": "w022",
+    "text": "watching.",
+    "start": 13.4,
+    "end": 14.0,
+    "speaker": "guest",
+    "confidence": 0.97
+  }
+]

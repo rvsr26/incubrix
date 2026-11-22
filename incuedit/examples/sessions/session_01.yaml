@@ -1,0 +1,6 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: "Add a caption 'Welcome!' when I say welcome to the channel"
+  - say: 'Cut the first 2 seconds'
+  - say: 'render'

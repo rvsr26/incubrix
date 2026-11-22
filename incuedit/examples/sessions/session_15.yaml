@@ -1,0 +1,4 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: 'Please make the video more exciting and viral'

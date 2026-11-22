@@ -1,0 +1,7 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+music: ../demo_music.wav
+steps:
+  - say: Add background music
+  - say: Cut the first 2 seconds
+  - say: render

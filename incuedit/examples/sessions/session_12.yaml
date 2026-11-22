@@ -1,0 +1,4 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: 'Mute the word thanks'

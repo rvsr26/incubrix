@@ -1,0 +1,4 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: 'Reorder section from 5 seconds to 7 seconds to 2 seconds'

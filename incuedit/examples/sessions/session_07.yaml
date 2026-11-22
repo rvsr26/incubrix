@@ -1,0 +1,5 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: 'Cut the first 3 seconds'
+  - say: 'Actually, put the intro back'

@@ -1,0 +1,5 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: 'Cut 2 seconds to 4 seconds'
+  - say: 'Cut 2 seconds to 4 seconds'

@@ -1,0 +1,5 @@
+video: ../demo_media.mp4
+transcript: ../sample_transcript.json
+steps:
+  - say: "Add a caption 'Thanks for watching!' when I say thanks for watching"
+  - say: 'Make that caption bigger'
