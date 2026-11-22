@@ -1,0 +1,45 @@
+# Large zip files (>50MB / >100MB rejected by GitHub)
+IncuEdit_PS2_Complete_Project.zip
+IncuEdit_FINAL.zip
+*.zip
+
+# Junction/legacy duplicate folder
+IncuEdit_PS2_Complete_Project/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node dependencies (frontend/dist is tracked for standalone run, but node_modules is excluded)
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+
+# Environment secrets
+.env
+*.env.local
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local data & temp render output (keep examples and artifacts)
+data/
+incuedit/data/renders/
+incuedit/data/videos/
+incuedit/data/temp/
