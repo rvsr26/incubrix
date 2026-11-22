@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://incuedit.local/schemas/timeline.schema.json",
+  "title": "IncuEdit Timeline",
+  "description": "A reversible video edit decision list. Segments reference immutable source-media time ranges; annotations reference transcript word IDs rather than output clock positions.",
+  "type": "object",
+  "required": ["schema_version", "video_id", "source_duration_s", "fps", "has_audio", "source_sha256", "time_policy", "segments", "captions", "word_effects", "history", "redo"],
+  "properties": {
+    "schema_version": {"type":"string","const":"1.0.0"},
+    "video_id": {"type":"string","minLength":1},
+    "source_duration_s": {"type":"number","exclusiveMinimum":0},
+    "fps": {"type":"number","exclusiveMinimum":0},
+    "has_audio": {"type":"boolean"},
+    "source_sha256": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "time_policy": {"type":"string","const":"current_timeline"},
+    "segments": {"type":"array","minItems":1,"items":{"$ref":"#/$defs/segment"}},
+    "captions": {"type":"array","items":{"$ref":"#/$defs/caption"}},
+    "word_effects": {"type":"array","items":{"$ref":"#/$defs/wordEffect"}},
+    "music": {"oneOf":[{"type":"null"},{"type":"object","required":["path","active","duck_under_speech"],"properties":{"path":{"type":"string"},"filename":{"type":"string"},"active":{"type":"boolean"},"duck_under_speech":{"type":"boolean"},"rights":{"type":"string"}},"additionalProperties":true}]},
+    "history": {"type":"array","items":{"type":"object","required":["label","timeline"],"properties":{"label":{"type":"string"},"timeline":{"type":"object"}},"additionalProperties":false}},
+    "redo": {"type":"array","items":{"type":"object"}},
+    "warnings": {"type":"array","items":{"type":"string"}}
+  },
+  "$defs": {
+    "segment": {"type":"object","required":["segment_id","source_start","source_end","speed"],"properties":{"segment_id":{"type":"string"},"source_start":{"type":"number","minimum":0},"source_end":{"type":"number","exclusiveMinimum":0},"speed":{"type":"number","minimum":0.25,"maximum":4}},"additionalProperties":false},
+    "caption": {"type":"object","required":["caption_id","text","start_word_id","end_word_id","word_ids","style"],"properties":{"caption_id":{"type":"string"},"text":{"type":"string"},"start_word_id":{"type":"string"},"end_word_id":{"type":"string"},"word_ids":{"type":"array","minItems":1,"items":{"type":"string"}},"style":{"type":"object","properties":{"font_size":{"type":"integer","minimum":12,"maximum":96},"color":{"type":"string"},"position":{"type":"string"}},"additionalProperties":true}},"additionalProperties":false},
+    "wordEffect": {"type":"object","required":["word_id","effect"],"properties":{"word_id":{"type":"string"},"effect":{"enum":["mute","bleep"]}},"additionalProperties":false}
+  },
+  "additionalProperties":true
+}
