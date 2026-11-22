@@ -1,0 +1,70 @@
+{
+  "session_file": "session_15.yaml",
+  "video": {
+    "video_id": "b11f3498-674e-4eaf-99e5-8ed4ac1125aa",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "1b822251-429b-45b6-89f8-ef4173a821e6",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Please make the video more exciting and viral",
+        "answer": null
+      },
+      "response": {
+        "status": "rejected",
+        "operations": [],
+        "summary": {
+          "message": "I could not map that request to a safe editing operation. Try a specific cut, caption, speed, mute, filler-removal, undo, or render instruction.",
+          "code": "INSTRUCTION_NOT_UNDERSTOOD",
+          "details": {
+            "instruction": "Please make the video more exciting and viral"
+          }
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+        "duration_s": 16.0,
+        "session_id": "1b822251-429b-45b6-89f8-ef4173a821e6"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "b11f3498-674e-4eaf-99e5-8ed4ac1125aa",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+  "duration_s": 16.0
+}

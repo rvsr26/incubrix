@@ -1,0 +1,93 @@
+{
+  "project": "IncuEdit",
+  "verification_environment": {
+    "python": "3.13.5",
+    "ffmpeg": "7.1.5",
+    "fps": 30
+  },
+  "automated_tests": {
+    "command": "python -m pytest -q",
+    "passed": 56
+  },
+  "session_runner": {
+    "sessions_expected": 20,
+    "sessions_completed": 20,
+    "session_failures": 0,
+    "instruction_steps": 38,
+    "statuses": {
+      "needs_clarification": 2,
+      "applied": 32,
+      "rejected": 4
+    }
+  },
+  "determinism": {
+    "independent_api_process_rounds": 3,
+    "sessions_per_round": 20,
+    "total_session_runs": 60,
+    "timeline_hash_mismatches": 0,
+    "mismatch_sessions": [],
+    "passed": true
+  },
+  "render_validation": {
+    "renders_verified": 5,
+    "max_av_offset_frames": 0.0,
+    "max_timeline_length_difference_frames": 0.0,
+    "all_passed": true,
+    "renders": [
+      {
+        "file": "session_01_manifest.json",
+        "expected_duration_s": 14.0,
+        "video_duration_s": 14.0,
+        "audio_duration_s": 14.0,
+        "max_offset_frames": 0.0,
+        "max_length_difference_frames": 0.0,
+        "render_ms": 497.16
+      },
+      {
+        "file": "session_16_manifest.json",
+        "expected_duration_s": 16.0,
+        "video_duration_s": 16.0,
+        "audio_duration_s": 16.0,
+        "max_offset_frames": 0.0,
+        "max_length_difference_frames": 0.0,
+        "render_ms": 804.61
+      },
+      {
+        "file": "session_17_manifest.json",
+        "expected_duration_s": 14.0,
+        "video_duration_s": 14.0,
+        "audio_duration_s": 14.0,
+        "max_offset_frames": 0.0,
+        "max_length_difference_frames": 0.0,
+        "render_ms": 721.53
+      },
+      {
+        "file": "session_19_manifest.json",
+        "expected_duration_s": 14.0,
+        "video_duration_s": 14.0,
+        "audio_duration_s": 14.0,
+        "max_offset_frames": 0.0,
+        "max_length_difference_frames": 0.0,
+        "render_ms": 392.08
+      },
+      {
+        "file": "session_20_manifest.json",
+        "expected_duration_s": 16.0,
+        "video_duration_s": 16.0,
+        "audio_duration_s": 16.0,
+        "max_offset_frames": 0.0,
+        "max_length_difference_frames": 0.0,
+        "render_ms": 837.51
+      }
+    ]
+  },
+  "openapi_contract": {
+    "openapi_version": "3.1.0",
+    "path_count": 19,
+    "fastapi_path_count": 19,
+    "missing_paths": [],
+    "extra_paths": [],
+    "passed": true
+  },
+  "media_note": "All bundled media and transcript data are synthetic; the sample MP4 contains a generated tone, not speech."
+}

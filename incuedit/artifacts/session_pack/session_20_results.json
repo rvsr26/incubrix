@@ -1,0 +1,278 @@
+{
+  "session_file": "session_20.yaml",
+  "video": {
+    "video_id": "d08da074-feda-4ff7-a780-a5fcdbd0e632",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "11ec2a12-59b5-41d6-9387-f09d8ea894b9",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Auto-caption the whole video",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "auto_caption",
+            "captions_added": 5
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 1.67,
+        "session_id": "11ec2a12-59b5-41d6-9387-f09d8ea894b9"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "render",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "render"
+          }
+        ],
+        "summary": {
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "message": "Render requested; use the render endpoint or CLI to export the timeline."
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+        "duration_s": 16.0,
+        "session_id": "11ec2a12-59b5-41d6-9387-f09d8ea894b9"
+      },
+      "render_job": {
+        "job_id": "59825340-de49-434c-af65-f8e090c04097",
+        "status": "succeeded",
+        "progress": 100,
+        "result": {
+          "video_url": "/api/v1/jobs/59825340-de49-434c-af65-f8e090c04097/video",
+          "manifest_url": "/api/v1/jobs/59825340-de49-434c-af65-f8e090c04097/manifest",
+          "local_video_url": "/api/v1/jobs/59825340-de49-434c-af65-f8e090c04097/video",
+          "manifest": {
+            "manifest_version": "1.0.0",
+            "project": "IncuEdit",
+            "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+            "providers": {
+              "transcription": {
+                "name": "manual_or_mock_transcript",
+                "version": "1.0"
+              },
+              "instruction_parser": {
+                "name": "deterministic_rules",
+                "version": "1.0"
+              },
+              "renderer": {
+                "name": "FFmpeg",
+                "version": "runtime"
+              }
+            },
+            "models": [],
+            "settings": {
+              "fps": 30.0,
+              "time_policy": "current_timeline",
+              "caption_count": 5,
+              "word_effect_count": 0
+            },
+            "seed": 0,
+            "timings": {
+              "render_ms": 1509.25
+            },
+            "sync_validation": {
+              "expected_timeline_duration_s": 16.0,
+              "video_stream_duration_s": 16.0,
+              "audio_stream_duration_s": 16.0,
+              "max_offset_frames": 0.0,
+              "max_length_difference_frames": 0.0
+            },
+            "cost_estimate": {
+              "currency": "USD",
+              "amount": 0.0,
+              "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+            },
+            "rights": {
+              "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+              "source_rights": "user_attested_at_upload",
+              "generated_media": false
+            },
+            "warnings": [],
+            "output": {
+              "path": "59825340-de49-434c-af65-f8e090c04097.mp4",
+              "duration_s": 16.0
+            }
+          }
+        },
+        "error": null,
+        "callback_url": null
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "d08da074-feda-4ff7-a780-a5fcdbd0e632",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [
+      {
+        "caption_id": "cap_0001",
+        "text": "Welcome to the channel.",
+        "start_word_id": "w001",
+        "end_word_id": "w004",
+        "word_ids": [
+          "w001",
+          "w002",
+          "w003",
+          "w004"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      },
+      {
+        "caption_id": "cap_0002",
+        "text": "Today we discuss pricing and cost.",
+        "start_word_id": "w005",
+        "end_word_id": "w010",
+        "word_ids": [
+          "w005",
+          "w006",
+          "w007",
+          "w008",
+          "w009",
+          "w010"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      },
+      {
+        "caption_id": "cap_0003",
+        "text": "I think pricing matters.",
+        "start_word_id": "w011",
+        "end_word_id": "w014",
+        "word_ids": [
+          "w011",
+          "w012",
+          "w013",
+          "w014"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      },
+      {
+        "caption_id": "cap_0004",
+        "text": "Um, like we can help.",
+        "start_word_id": "w015",
+        "end_word_id": "w019",
+        "word_ids": [
+          "w015",
+          "w016",
+          "w017",
+          "w018",
+          "w019"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      },
+      {
+        "caption_id": "cap_0005",
+        "text": "Thanks for watching.",
+        "start_word_id": "w020",
+        "end_word_id": "w022",
+        "word_ids": [
+          "w020",
+          "w021",
+          "w022"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      }
+    ],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Auto-caption the whole video",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "d08da074-feda-4ff7-a780-a5fcdbd0e632",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+  "duration_s": 16.0
+}

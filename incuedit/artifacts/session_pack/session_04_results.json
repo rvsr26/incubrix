@@ -1,0 +1,116 @@
+{
+  "session_file": "session_04.yaml",
+  "video": {
+    "video_id": "005c04a0-4c6b-46d8-9ed2-aa41b0bdc3a2",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "9d7fcfd4-a265-4c19-96d6-5afd1f3170e9",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Remove filler words",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "remove_fillers",
+            "word_ids": [
+              "w015",
+              "w016"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 15.44,
+          "delta_s": -0.56,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "a627661bfc2f5bd5c48ca33259a0d3200c900549e69012779b50c60fefd96d32",
+        "duration_s": 15.44,
+        "instruction_latency_ms": 0.42,
+        "session_id": "9d7fcfd4-a265-4c19-96d6-5afd1f3170e9"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "005c04a0-4c6b-46d8-9ed2-aa41b0bdc3a2",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 9.0,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0002",
+        "source_start": 9.28,
+        "source_end": 9.6,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0003",
+        "source_start": 9.88,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Remove filler words",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "005c04a0-4c6b-46d8-9ed2-aa41b0bdc3a2",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "a627661bfc2f5bd5c48ca33259a0d3200c900549e69012779b50c60fefd96d32",
+  "duration_s": 15.44
+}

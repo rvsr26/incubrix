@@ -1,0 +1,124 @@
+{
+  "session_file": "session_05.yaml",
+  "video": {
+    "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "d5948e8d-3f79-4e66-a927-136d2b393e52",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Remove silences longer than 1 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "remove_silence",
+            "threshold_s": 1.0,
+            "ranges": [
+              [
+                8.03,
+                8.92
+              ],
+              [
+                10.86,
+                12.72
+              ]
+            ],
+            "snap_pad_s": 0.08
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 13.25,
+          "delta_s": -2.75,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "728fb60b1bf4f276c85261503090f40e6ff731e2301377f1cf7f59597b4edc31",
+        "duration_s": 13.25,
+        "instruction_latency_ms": 0.88,
+        "session_id": "d5948e8d-3f79-4e66-a927-136d2b393e52"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 8.03,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0002",
+        "source_start": 8.92,
+        "source_end": 10.86,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0003",
+        "source_start": 12.72,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Remove silences longer than 1 seconds",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "728fb60b1bf4f276c85261503090f40e6ff731e2301377f1cf7f59597b4edc31",
+  "duration_s": 13.249999999999998
+}

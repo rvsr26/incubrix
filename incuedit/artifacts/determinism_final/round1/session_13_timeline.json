@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "2fb7965f-6d2a-4c5b-8e5d-24bb51b8af1d",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 0.0,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [
+    {
+      "caption_id": "cap_0001",
+      "text": "Thanks for watching!",
+      "start_word_id": "w020",
+      "end_word_id": "w022",
+      "word_ids": [
+        "w020",
+        "w021",
+        "w022"
+      ],
+      "style": {
+        "font_size": 44,
+        "color": "white",
+        "position": "bottom"
+      }
+    }
+  ],
+  "word_effects": [],
+  "music": null,
+  "history": [
+    {
+      "label": "Add a caption 'Thanks for watching!' when I say thanks for watching",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "2fb7965f-6d2a-4c5b-8e5d-24bb51b8af1d",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "Make that caption bigger",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "2fb7965f-6d2a-4c5b-8e5d-24bb51b8af1d",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [
+          {
+            "caption_id": "cap_0001",
+            "text": "Thanks for watching!",
+            "start_word_id": "w020",
+            "end_word_id": "w022",
+            "word_ids": [
+              "w020",
+              "w021",
+              "w022"
+            ],
+            "style": {
+              "font_size": 36,
+              "color": "white",
+              "position": "bottom"
+            }
+          }
+        ],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

@@ -1,0 +1,108 @@
+{
+  "session_file": "session_12.yaml",
+  "video": {
+    "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "b45cd956-1ccd-4eba-964a-8de2fd3defd6",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Mute the word thanks",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "mute",
+            "word_ids": [
+              "w020"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "973b29fcd4f8841228628fbd317b56aefdac5175671d56df815f49f84bf786ef",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 0.48,
+        "session_id": "b45cd956-1ccd-4eba-964a-8de2fd3defd6"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [
+      {
+        "word_id": "w020",
+        "effect": "mute"
+      }
+    ],
+    "music": null,
+    "history": [
+      {
+        "label": "Mute the word thanks",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "973b29fcd4f8841228628fbd317b56aefdac5175671d56df815f49f84bf786ef",
+  "duration_s": 16.0
+}

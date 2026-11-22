@@ -1,0 +1,3338 @@
+[
+  {
+    "session_file": "session_01.yaml",
+    "video": {
+      "video_id": "367b0fc7-a11c-479d-96ba-00b3c579f06f",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "55010a66-8412-4ce7-b245-cb3fe9c2a4f8",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Add a caption 'Welcome!' when I say welcome to the channel",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "add_caption",
+              "text": "Welcome!",
+              "word_ids": [
+                "w001",
+                "w002",
+                "w003",
+                "w004"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "fcc1598057a0c4270a166592fa1da54113c7d1b02fe7e75dae3fa0c375591544",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 16.94,
+          "session_id": "55010a66-8412-4ce7-b245-cb3fe9c2a4f8"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Cut the first 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 2.26,
+          "session_id": "55010a66-8412-4ce7-b245-cb3fe9c2a4f8"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "say": "render",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "render"
+            }
+          ],
+          "summary": {
+            "before_duration_s": 14.0,
+            "after_duration_s": 14.0,
+            "message": "Render requested; use the render endpoint or CLI to export the timeline."
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+          "duration_s": 14.0,
+          "session_id": "55010a66-8412-4ce7-b245-cb3fe9c2a4f8"
+        },
+        "render_job": {
+          "job_id": "cb176086-c1de-4de8-a134-cd4c57d9c6a6",
+          "status": "succeeded",
+          "progress": 100,
+          "result": {
+            "video_url": "/api/v1/jobs/cb176086-c1de-4de8-a134-cd4c57d9c6a6/video",
+            "manifest_url": "/api/v1/jobs/cb176086-c1de-4de8-a134-cd4c57d9c6a6/manifest",
+            "local_video_url": "/api/v1/jobs/cb176086-c1de-4de8-a134-cd4c57d9c6a6/video",
+            "manifest": {
+              "manifest_version": "1.0.0",
+              "project": "IncuEdit",
+              "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+              "providers": {
+                "transcription": {
+                  "name": "manual_or_mock_transcript",
+                  "version": "1.0"
+                },
+                "instruction_parser": {
+                  "name": "deterministic_rules",
+                  "version": "1.0"
+                },
+                "renderer": {
+                  "name": "FFmpeg",
+                  "version": "runtime"
+                }
+              },
+              "models": [],
+              "settings": {
+                "fps": 30.0,
+                "time_policy": "current_timeline",
+                "caption_count": 1,
+                "word_effect_count": 0
+              },
+              "seed": 0,
+              "timings": {
+                "render_ms": 499.21
+              },
+              "sync_validation": {
+                "expected_timeline_duration_s": 14.0,
+                "video_stream_duration_s": 14.0,
+                "audio_stream_duration_s": 14.0,
+                "max_offset_frames": 0.0,
+                "max_length_difference_frames": 0.0
+              },
+              "cost_estimate": {
+                "currency": "USD",
+                "amount": 0.0,
+                "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+              },
+              "rights": {
+                "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+                "source_rights": "user_attested_at_upload",
+                "generated_media": false
+              },
+              "warnings": [],
+              "output": {
+                "path": "cb176086-c1de-4de8-a134-cd4c57d9c6a6.mp4",
+                "duration_s": 14.0
+              }
+            }
+          },
+          "error": null,
+          "callback_url": null
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "367b0fc7-a11c-479d-96ba-00b3c579f06f",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 2.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [
+        {
+          "caption_id": "cap_0001",
+          "text": "Welcome!",
+          "start_word_id": "w001",
+          "end_word_id": "w004",
+          "word_ids": [
+            "w001",
+            "w002",
+            "w003",
+            "w004"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        }
+      ],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Add a caption 'Welcome!' when I say welcome to the channel",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "367b0fc7-a11c-479d-96ba-00b3c579f06f",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Cut the first 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "367b0fc7-a11c-479d-96ba-00b3c579f06f",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [
+              {
+                "caption_id": "cap_0001",
+                "text": "Welcome!",
+                "start_word_id": "w001",
+                "end_word_id": "w004",
+                "word_ids": [
+                  "w001",
+                  "w002",
+                  "w003",
+                  "w004"
+                ],
+                "style": {
+                  "font_size": 36,
+                  "color": "white",
+                  "position": "bottom"
+                }
+              }
+            ],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+    "duration_s": 14.0
+  },
+  {
+    "session_file": "session_02.yaml",
+    "video": {
+      "video_id": "09b40980-f97e-484d-93ce-055aa9aac229",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "a0f2bf97-c950-4638-9de3-004499e8a7b2",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Remove the part about pricing",
+          "answer": null
+        },
+        "response": {
+          "status": "needs_clarification",
+          "operations": [],
+          "summary": {
+            "message": "No destructive edit was made."
+          },
+          "question": "I found 3 possible matches for 'pricing'. Which one should I remove, or should I remove all?",
+          "options": [
+            {
+              "id": 1,
+              "label": "Occurrence 1: 4.00s\u20134.55s",
+              "start_s": 4.0,
+              "end_s": 4.55
+            },
+            {
+              "id": 2,
+              "label": "Occurrence 2: 4.74s\u20135.20s",
+              "start_s": 4.74,
+              "end_s": 5.2
+            },
+            {
+              "id": 3,
+              "label": "Occurrence 3: 7.00s\u20137.45s",
+              "start_s": 7.0,
+              "end_s": 7.45
+            }
+          ],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "a0f2bf97-c950-4638-9de3-004499e8a7b2"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Remove the part about pricing",
+          "answer": "second one"
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut_words",
+              "word_ids": [
+                "w010"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Removed the selected transcript occurrence(s).",
+            "before_duration_s": 15.54,
+            "after_duration_s": 15.54,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "e1322e041f3b3a7ad0143feca769e5cb7e4762b8c7b870c6e99adb2729a63187",
+          "duration_s": 15.54,
+          "session_id": "a0f2bf97-c950-4638-9de3-004499e8a7b2"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "09b40980-f97e-484d-93ce-055aa9aac229",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 4.74,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 5.2,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "resolve clarification",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "09b40980-f97e-484d-93ce-055aa9aac229",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "e1322e041f3b3a7ad0143feca769e5cb7e4762b8c7b870c6e99adb2729a63187",
+    "duration_s": 15.540000000000001
+  },
+  {
+    "session_file": "session_03.yaml",
+    "video": {
+      "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "c394dfda-9211-4e36-8717-616a87e41e3c",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Speed up from 5 seconds to 8 seconds by 2x",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "speed",
+              "start": 5.0,
+              "end": 8.0,
+              "factor": 2.0,
+              "time_policy": "current_timeline",
+              "overlap_rule": "newest speed instruction overrides the selected visible interval"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.5,
+            "delta_s": -1.5,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "0a4dcba11720c362bf0b9d55547c0d94e394632fef6e15056684d45cdf736001",
+          "duration_s": 14.5,
+          "instruction_latency_ms": 0.52,
+          "session_id": "c394dfda-9211-4e36-8717-616a87e41e3c"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 5.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 5.0,
+          "source_end": 8.0,
+          "speed": 2.0
+        },
+        {
+          "segment_id": "seg_0003",
+          "source_start": 8.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Speed up from 5 seconds to 8 seconds by 2x",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "0a4dcba11720c362bf0b9d55547c0d94e394632fef6e15056684d45cdf736001",
+    "duration_s": 14.5
+  },
+  {
+    "session_file": "session_04.yaml",
+    "video": {
+      "video_id": "d518c01e-a108-4913-b4e0-e132137cbd0c",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "69b5979e-26f9-4938-a2f1-599bc56aa4e3",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Remove filler words",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "remove_fillers",
+              "word_ids": [
+                "w015",
+                "w016"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 15.44,
+            "delta_s": -0.56,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "a627661bfc2f5bd5c48ca33259a0d3200c900549e69012779b50c60fefd96d32",
+          "duration_s": 15.44,
+          "instruction_latency_ms": 0.52,
+          "session_id": "69b5979e-26f9-4938-a2f1-599bc56aa4e3"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "d518c01e-a108-4913-b4e0-e132137cbd0c",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 9.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 9.28,
+          "source_end": 9.6,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0003",
+          "source_start": 9.88,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Remove filler words",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "d518c01e-a108-4913-b4e0-e132137cbd0c",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "a627661bfc2f5bd5c48ca33259a0d3200c900549e69012779b50c60fefd96d32",
+    "duration_s": 15.44
+  },
+  {
+    "session_file": "session_05.yaml",
+    "video": {
+      "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "d5948e8d-3f79-4e66-a927-136d2b393e52",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Remove silences longer than 1 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "remove_silence",
+              "threshold_s": 1.0,
+              "ranges": [
+                [
+                  8.03,
+                  8.92
+                ],
+                [
+                  10.86,
+                  12.72
+                ]
+              ],
+              "snap_pad_s": 0.08
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 13.25,
+            "delta_s": -2.75,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "728fb60b1bf4f276c85261503090f40e6ff731e2301377f1cf7f59597b4edc31",
+          "duration_s": 13.25,
+          "instruction_latency_ms": 0.88,
+          "session_id": "d5948e8d-3f79-4e66-a927-136d2b393e52"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 8.03,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 8.92,
+          "source_end": 10.86,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0003",
+          "source_start": 12.72,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Remove silences longer than 1 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "81264d5c-b6e1-4635-bd81-972405cdbcc9",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "728fb60b1bf4f276c85261503090f40e6ff731e2301377f1cf7f59597b4edc31",
+    "duration_s": 13.249999999999998
+  },
+  {
+    "session_file": "session_06.yaml",
+    "video": {
+      "video_id": "8a65706f-6445-48c8-82e5-6de5f5986985",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "1953d2e0-2671-4300-8fb8-97ccfa881c1c",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut the first 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 0.41,
+          "session_id": "1953d2e0-2671-4300-8fb8-97ccfa881c1c"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Undo",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "undo",
+              "edit": "Cut the first 2 seconds"
+            }
+          ],
+          "summary": {
+            "message": "Undid: Cut the first 2 seconds.",
+            "before_duration_s": 14.0,
+            "after_duration_s": 16.0,
+            "delta_s": 2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "1953d2e0-2671-4300-8fb8-97ccfa881c1c"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "say": "Redo",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "redo",
+              "edit": "Cut the first 2 seconds"
+            }
+          ],
+          "summary": {
+            "message": "Redid: Cut the first 2 seconds.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+          "duration_s": 14.0,
+          "session_id": "1953d2e0-2671-4300-8fb8-97ccfa881c1c"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "8a65706f-6445-48c8-82e5-6de5f5986985",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 2.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "warnings": [],
+      "history": [
+        {
+          "label": "Cut the first 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "8a65706f-6445-48c8-82e5-6de5f5986985",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": []
+    },
+    "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+    "duration_s": 14.0
+  },
+  {
+    "session_file": "session_07.yaml",
+    "video": {
+      "video_id": "5740b7c1-f149-4431-8c95-cbe5ea012dae",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "823dc176-8434-4094-b39e-9662d4d1c6a7",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut the first 3 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 3.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 13.0,
+            "delta_s": -3.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "edeab815d4362616288432c785336f2689c65089e6d855f7ced19ae27108501f",
+          "duration_s": 13.0,
+          "instruction_latency_ms": 0.41,
+          "session_id": "823dc176-8434-4094-b39e-9662d4d1c6a7"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Actually, put the intro back",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "restore_intro",
+              "source_ranges": [
+                [
+                  0.0,
+                  3.0
+                ]
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 13.0,
+            "after_duration_s": 16.0,
+            "delta_s": 3.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "5c97bedd3aea176469e7dc3c7f1710c11ebacfa47845134efeca5b208b7f3e53",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.55,
+          "session_id": "823dc176-8434-4094-b39e-9662d4d1c6a7"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "5740b7c1-f149-4431-8c95-cbe5ea012dae",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 3.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0001",
+          "source_start": 3.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Cut the first 3 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "5740b7c1-f149-4431-8c95-cbe5ea012dae",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Actually, put the intro back",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "5740b7c1-f149-4431-8c95-cbe5ea012dae",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 3.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "5c97bedd3aea176469e7dc3c7f1710c11ebacfa47845134efeca5b208b7f3e53",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_08.yaml",
+    "video": {
+      "video_id": "1e360a2d-f704-479c-a024-5eb63e624b2f",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "d185c253-f683-485e-817f-215de5e52678",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Keep only from 1 seconds to 10 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "keep",
+              "current_start": 1.0,
+              "current_end": 10.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 9.0,
+            "delta_s": -7.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "ee7d5434d3e59b0440c188a043f8e60fafd88eda0ffcf414327368f0039948b3",
+          "duration_s": 9.0,
+          "instruction_latency_ms": 0.42,
+          "session_id": "d185c253-f683-485e-817f-215de5e52678"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "1e360a2d-f704-479c-a024-5eb63e624b2f",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 1.0,
+          "source_end": 10.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Keep only from 1 seconds to 10 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "1e360a2d-f704-479c-a024-5eb63e624b2f",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "ee7d5434d3e59b0440c188a043f8e60fafd88eda0ffcf414327368f0039948b3",
+    "duration_s": 9.0
+  },
+  {
+    "session_file": "session_09.yaml",
+    "video": {
+      "video_id": "6c319fa4-0765-4c94-adbd-6c64d0ff16d5",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "6cada8e4-ad56-4747-8ade-8d50054525f9",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut 2 seconds to 4 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 2.0,
+              "current_end": 4.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1f9b163edc06456701bbd4ff409093843eeadecd2f0d8e64e9dc27745ff1bf49",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 0.61,
+          "session_id": "6cada8e4-ad56-4747-8ade-8d50054525f9"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Cut 2 seconds to 4 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "rejected",
+          "operations": [],
+          "summary": {
+            "message": "This exact destructive instruction was just applied. No second edit was made.",
+            "code": "DUPLICATE_INSTRUCTION",
+            "details": {}
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1f9b163edc06456701bbd4ff409093843eeadecd2f0d8e64e9dc27745ff1bf49",
+          "duration_s": 14.0,
+          "session_id": "6cada8e4-ad56-4747-8ade-8d50054525f9"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "6c319fa4-0765-4c94-adbd-6c64d0ff16d5",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 2.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 4.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Cut 2 seconds to 4 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "6c319fa4-0765-4c94-adbd-6c64d0ff16d5",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "1f9b163edc06456701bbd4ff409093843eeadecd2f0d8e64e9dc27745ff1bf49",
+    "duration_s": 14.0
+  },
+  {
+    "session_file": "session_10.yaml",
+    "video": {
+      "video_id": "c2fbdb03-db46-4504-9287-afcf4812c443",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "9a34efaf-12d5-42c7-acd5-56e1b851d635",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut 15 seconds to 20 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "rejected",
+          "operations": [],
+          "summary": {
+            "message": "The requested time range is outside the current video.",
+            "code": "TIME_OUT_OF_RANGE",
+            "details": {
+              "start": 15.0,
+              "end": 20.0,
+              "duration": 16.0
+            }
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "9a34efaf-12d5-42c7-acd5-56e1b851d635"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "c2fbdb03-db46-4504-9287-afcf4812c443",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_11.yaml",
+    "video": {
+      "video_id": "1ed5119d-6205-4342-ba18-c19020cf1d9a",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "29d72ffd-516e-41d3-9eaa-fe4d729aed84",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut the first 16 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "rejected",
+          "operations": [],
+          "summary": {
+            "message": "This edit would remove the entire video; it was rejected.",
+            "code": "WHOLE_VIDEO_CUT",
+            "details": {}
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "29d72ffd-516e-41d3-9eaa-fe4d729aed84"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "1ed5119d-6205-4342-ba18-c19020cf1d9a",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_12.yaml",
+    "video": {
+      "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "b45cd956-1ccd-4eba-964a-8de2fd3defd6",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Mute the word thanks",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "mute",
+              "word_ids": [
+                "w020"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "973b29fcd4f8841228628fbd317b56aefdac5175671d56df815f49f84bf786ef",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.48,
+          "session_id": "b45cd956-1ccd-4eba-964a-8de2fd3defd6"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [
+        {
+          "word_id": "w020",
+          "effect": "mute"
+        }
+      ],
+      "music": null,
+      "history": [
+        {
+          "label": "Mute the word thanks",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "50d34ad3-4d3f-42db-ab17-60106e826c81",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "973b29fcd4f8841228628fbd317b56aefdac5175671d56df815f49f84bf786ef",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_13.yaml",
+    "video": {
+      "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Add a caption 'Thanks for watching!' when I say thanks for watching",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "add_caption",
+              "text": "Thanks for watching!",
+              "word_ids": [
+                "w020",
+                "w021",
+                "w022"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "a1a5e241fa043c488cafe7f46a945c794984ab2c9bf7ea0ccf2c2556369bdf6d",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.44,
+          "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Make that caption bigger",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "caption_resize",
+              "direction": "bigger",
+              "caption_ids": [
+                "cap_0001"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1cf7c14d850cbfcc50627535c7c8f1bc2b9c21c9f906be7214384176f4a73560",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.39,
+          "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [
+        {
+          "caption_id": "cap_0001",
+          "text": "Thanks for watching!",
+          "start_word_id": "w020",
+          "end_word_id": "w022",
+          "word_ids": [
+            "w020",
+            "w021",
+            "w022"
+          ],
+          "style": {
+            "font_size": 44,
+            "color": "white",
+            "position": "bottom"
+          }
+        }
+      ],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Add a caption 'Thanks for watching!' when I say thanks for watching",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Make that caption bigger",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [
+              {
+                "caption_id": "cap_0001",
+                "text": "Thanks for watching!",
+                "start_word_id": "w020",
+                "end_word_id": "w022",
+                "word_ids": [
+                  "w020",
+                  "w021",
+                  "w022"
+                ],
+                "style": {
+                  "font_size": 36,
+                  "color": "white",
+                  "position": "bottom"
+                }
+              }
+            ],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "1cf7c14d850cbfcc50627535c7c8f1bc2b9c21c9f906be7214384176f4a73560",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_14.yaml",
+    "video": {
+      "video_id": "149d5941-304f-47ab-8ddf-45618f00265e",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "bb9846f6-a8e4-41be-bb63-f8149712e922",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Reorder section from 5 seconds to 7 seconds to 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "reorder",
+              "start": 5.0,
+              "end": 7.0,
+              "insert_at": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "3b5eca49cec1411fec09f7618b9828022a48aeca36e6c41926c3da25ab790e6d",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.53,
+          "session_id": "bb9846f6-a8e4-41be-bb63-f8149712e922"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "149d5941-304f-47ab-8ddf-45618f00265e",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 2.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0002",
+          "source_start": 5.0,
+          "source_end": 7.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0003",
+          "source_start": 2.0,
+          "source_end": 5.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0004",
+          "source_start": 7.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Reorder section from 5 seconds to 7 seconds to 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "149d5941-304f-47ab-8ddf-45618f00265e",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "3b5eca49cec1411fec09f7618b9828022a48aeca36e6c41926c3da25ab790e6d",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_15.yaml",
+    "video": {
+      "video_id": "7388cc56-2703-4c09-bc26-2d4a3f94954d",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "2c6f0cc2-824e-4268-9e60-e8bde6968eb7",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Please make the video more exciting and viral",
+          "answer": null
+        },
+        "response": {
+          "status": "rejected",
+          "operations": [],
+          "summary": {
+            "message": "I could not map that request to a safe editing operation. Try a specific cut, caption, speed, mute, filler-removal, undo, or render instruction.",
+            "code": "INSTRUCTION_NOT_UNDERSTOOD",
+            "details": {
+              "instruction": "Please make the video more exciting and viral"
+            }
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "2c6f0cc2-824e-4268-9e60-e8bde6968eb7"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "7388cc56-2703-4c09-bc26-2d4a3f94954d",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "history": [],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_16.yaml",
+    "video": {
+      "video_id": "3bb640ce-5fad-472e-9d97-7e833c4cd5ec",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "f0bd6b15-04d0-4356-90e7-85644b080322",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Bleep the word thanks",
+          "answer": null
+        },
+        "response": {
+          "status": "needs_clarification",
+          "operations": [],
+          "summary": {
+            "message": "No bleep was applied because the word timing is low-confidence."
+          },
+          "question": "The transcript confidence for 'thanks' is low (0.72). Confirm the bleep, or cancel by giving a different instruction?",
+          "options": [
+            {
+              "id": 1,
+              "label": "Confirm bleep"
+            }
+          ],
+          "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+          "duration_s": 16.0,
+          "session_id": "f0bd6b15-04d0-4356-90e7-85644b080322"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Bleep the word thanks",
+          "answer": "yes"
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "bleep",
+              "word_ids": [
+                "w020"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Applied bleep to the selected word occurrence(s).",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "381b415a648e3c00a3f3c16c7612cfc850c51323c97d9b7c9830baf25f9f386a",
+          "duration_s": 16.0,
+          "session_id": "f0bd6b15-04d0-4356-90e7-85644b080322"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "say": "render",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "render"
+            }
+          ],
+          "summary": {
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "message": "Render requested; use the render endpoint or CLI to export the timeline."
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "381b415a648e3c00a3f3c16c7612cfc850c51323c97d9b7c9830baf25f9f386a",
+          "duration_s": 16.0,
+          "session_id": "f0bd6b15-04d0-4356-90e7-85644b080322"
+        },
+        "render_job": {
+          "job_id": "29d02d06-926d-479a-98f5-e76ba0907285",
+          "status": "succeeded",
+          "progress": 100,
+          "result": {
+            "video_url": "/api/v1/jobs/29d02d06-926d-479a-98f5-e76ba0907285/video",
+            "manifest_url": "/api/v1/jobs/29d02d06-926d-479a-98f5-e76ba0907285/manifest",
+            "local_video_url": "/api/v1/jobs/29d02d06-926d-479a-98f5-e76ba0907285/video",
+            "manifest": {
+              "manifest_version": "1.0.0",
+              "project": "IncuEdit",
+              "timeline_hash": "381b415a648e3c00a3f3c16c7612cfc850c51323c97d9b7c9830baf25f9f386a",
+              "providers": {
+                "transcription": {
+                  "name": "manual_or_mock_transcript",
+                  "version": "1.0"
+                },
+                "instruction_parser": {
+                  "name": "deterministic_rules",
+                  "version": "1.0"
+                },
+                "renderer": {
+                  "name": "FFmpeg",
+                  "version": "runtime"
+                }
+              },
+              "models": [],
+              "settings": {
+                "fps": 30.0,
+                "time_policy": "current_timeline",
+                "caption_count": 0,
+                "word_effect_count": 1
+              },
+              "seed": 0,
+              "timings": {
+                "render_ms": 1241.6
+              },
+              "sync_validation": {
+                "expected_timeline_duration_s": 16.0,
+                "video_stream_duration_s": 16.0,
+                "audio_stream_duration_s": 16.0,
+                "max_offset_frames": 0.0,
+                "max_length_difference_frames": 0.0
+              },
+              "cost_estimate": {
+                "currency": "USD",
+                "amount": 0.0,
+                "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+              },
+              "rights": {
+                "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+                "source_rights": "user_attested_at_upload",
+                "generated_media": false
+              },
+              "warnings": [],
+              "output": {
+                "path": "29d02d06-926d-479a-98f5-e76ba0907285.mp4",
+                "duration_s": 16.0
+              }
+            }
+          },
+          "error": null,
+          "callback_url": null
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "3bb640ce-5fad-472e-9d97-7e833c4cd5ec",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [
+        {
+          "word_id": "w020",
+          "effect": "bleep"
+        }
+      ],
+      "music": null,
+      "history": [
+        {
+          "label": "resolve clarification",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "3bb640ce-5fad-472e-9d97-7e833c4cd5ec",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "381b415a648e3c00a3f3c16c7612cfc850c51323c97d9b7c9830baf25f9f386a",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_17.yaml",
+    "video": {
+      "video_id": "19bc5a63-1954-419f-8205-7a7645334160",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "902a7e54-20e6-43ff-bc6b-eb65ea05dc02",
+    "music_upload": {
+      "status": "uploaded",
+      "filename": "demo_music.wav",
+      "message": "Music uploaded. Say 'add background music' to apply it with speech ducking."
+    },
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Add background music",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "add_background_music",
+              "duck_under_speech": true
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "f0440a2fa79f4f45aaff7a6e2f8c6be6803f96d1c73b7f8a8f3bc495783150d7",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.39,
+          "session_id": "902a7e54-20e6-43ff-bc6b-eb65ea05dc02"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Cut the first 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 1.21,
+          "session_id": "902a7e54-20e6-43ff-bc6b-eb65ea05dc02"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "say": "render",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "render"
+            }
+          ],
+          "summary": {
+            "before_duration_s": 14.0,
+            "after_duration_s": 14.0,
+            "message": "Render requested; use the render endpoint or CLI to export the timeline."
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+          "duration_s": 14.0,
+          "session_id": "902a7e54-20e6-43ff-bc6b-eb65ea05dc02"
+        },
+        "render_job": {
+          "job_id": "6f7132d8-d18b-4951-b2df-16e5e6f5e882",
+          "status": "succeeded",
+          "progress": 100,
+          "result": {
+            "video_url": "/api/v1/jobs/6f7132d8-d18b-4951-b2df-16e5e6f5e882/video",
+            "manifest_url": "/api/v1/jobs/6f7132d8-d18b-4951-b2df-16e5e6f5e882/manifest",
+            "local_video_url": "/api/v1/jobs/6f7132d8-d18b-4951-b2df-16e5e6f5e882/video",
+            "manifest": {
+              "manifest_version": "1.0.0",
+              "project": "IncuEdit",
+              "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+              "providers": {
+                "transcription": {
+                  "name": "manual_or_mock_transcript",
+                  "version": "1.0"
+                },
+                "instruction_parser": {
+                  "name": "deterministic_rules",
+                  "version": "1.0"
+                },
+                "renderer": {
+                  "name": "FFmpeg",
+                  "version": "runtime"
+                }
+              },
+              "models": [],
+              "settings": {
+                "fps": 30.0,
+                "time_policy": "current_timeline",
+                "caption_count": 0,
+                "word_effect_count": 0
+              },
+              "seed": 0,
+              "timings": {
+                "render_ms": 1066.51
+              },
+              "sync_validation": {
+                "expected_timeline_duration_s": 14.0,
+                "video_stream_duration_s": 14.0,
+                "audio_stream_duration_s": 14.0,
+                "max_offset_frames": 0.0,
+                "max_length_difference_frames": 0.0
+              },
+              "cost_estimate": {
+                "currency": "USD",
+                "amount": 0.0,
+                "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+              },
+              "rights": {
+                "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+                "source_rights": "user_attested_at_upload",
+                "generated_media": false
+              },
+              "warnings": [],
+              "output": {
+                "path": "6f7132d8-d18b-4951-b2df-16e5e6f5e882.mp4",
+                "duration_s": 14.0
+              }
+            }
+          },
+          "error": null,
+          "callback_url": null
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "19bc5a63-1954-419f-8205-7a7645334160",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 2.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": {
+        "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\f5861647-6c69-4864-aa1f-69d049a67201.wav",
+        "filename": "demo_music.wav",
+        "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+        "active": true,
+        "duck_under_speech": true,
+        "rights": "user_attested"
+      },
+      "history": [
+        {
+          "label": "upload background music asset",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "19bc5a63-1954-419f-8205-7a7645334160",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Add background music",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "19bc5a63-1954-419f-8205-7a7645334160",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": {
+              "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\f5861647-6c69-4864-aa1f-69d049a67201.wav",
+              "filename": "demo_music.wav",
+              "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+              "active": false,
+              "duck_under_speech": true,
+              "rights": "user_attested"
+            },
+            "warnings": []
+          }
+        },
+        {
+          "label": "Cut the first 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "19bc5a63-1954-419f-8205-7a7645334160",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": {
+              "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\f5861647-6c69-4864-aa1f-69d049a67201.wav",
+              "filename": "demo_music.wav",
+              "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+              "active": true,
+              "duck_under_speech": true,
+              "rights": "user_attested"
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+    "duration_s": 14.0
+  },
+  {
+    "session_file": "session_18.yaml",
+    "video": {
+      "video_id": "c3aba935-823b-446a-8327-37732131959c",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "6392e30b-8281-40d4-aca9-61b93b565495",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Add a caption 'Welcome!' when I say welcome to the channel",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "add_caption",
+              "text": "Welcome!",
+              "word_ids": [
+                "w001",
+                "w002",
+                "w003",
+                "w004"
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "fcc1598057a0c4270a166592fa1da54113c7d1b02fe7e75dae3fa0c375591544",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.52,
+          "session_id": "6392e30b-8281-40d4-aca9-61b93b565495"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Cut the first 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 0.52,
+          "session_id": "6392e30b-8281-40d4-aca9-61b93b565495"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "say": "Actually, put the intro back",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "restore_intro",
+              "source_ranges": [
+                [
+                  0.0,
+                  2.0
+                ]
+              ]
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 14.0,
+            "after_duration_s": 16.0,
+            "delta_s": 2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "a76a81e60baef99ae62d93be418ab5607bec2d075fab286aa9476d391e8ad3fe",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 0.68,
+          "session_id": "6392e30b-8281-40d4-aca9-61b93b565495"
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "c3aba935-823b-446a-8327-37732131959c",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 2.0,
+          "speed": 1.0
+        },
+        {
+          "segment_id": "seg_0001",
+          "source_start": 2.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [
+        {
+          "caption_id": "cap_0001",
+          "text": "Welcome!",
+          "start_word_id": "w001",
+          "end_word_id": "w004",
+          "word_ids": [
+            "w001",
+            "w002",
+            "w003",
+            "w004"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        }
+      ],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Add a caption 'Welcome!' when I say welcome to the channel",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "c3aba935-823b-446a-8327-37732131959c",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Cut the first 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "c3aba935-823b-446a-8327-37732131959c",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [
+              {
+                "caption_id": "cap_0001",
+                "text": "Welcome!",
+                "start_word_id": "w001",
+                "end_word_id": "w004",
+                "word_ids": [
+                  "w001",
+                  "w002",
+                  "w003",
+                  "w004"
+                ],
+                "style": {
+                  "font_size": 36,
+                  "color": "white",
+                  "position": "bottom"
+                }
+              }
+            ],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "Actually, put the intro back",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "c3aba935-823b-446a-8327-37732131959c",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 2.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [
+              {
+                "caption_id": "cap_0001",
+                "text": "Welcome!",
+                "start_word_id": "w001",
+                "end_word_id": "w004",
+                "word_ids": [
+                  "w001",
+                  "w002",
+                  "w003",
+                  "w004"
+                ],
+                "style": {
+                  "font_size": 36,
+                  "color": "white",
+                  "position": "bottom"
+                }
+              }
+            ],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "a76a81e60baef99ae62d93be418ab5607bec2d075fab286aa9476d391e8ad3fe",
+    "duration_s": 16.0
+  },
+  {
+    "session_file": "session_19.yaml",
+    "video": {
+      "video_id": "11792ab5-7688-4da3-bc2e-7e6fc553a93b",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "09ab70ff-ec20-464b-8c1f-6ffe37ad2d5c",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Cut the first 2 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 0.0,
+              "current_end": 2.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 14.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+          "duration_s": 14.0,
+          "instruction_latency_ms": 0.38,
+          "session_id": "09ab70ff-ec20-464b-8c1f-6ffe37ad2d5c"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "Cut 2 seconds to 4 seconds",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "cut",
+              "current_start": 2.0,
+              "current_end": 4.0,
+              "time_policy": "current_timeline"
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 14.0,
+            "after_duration_s": 12.0,
+            "delta_s": -2.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "07afbf1bb324ccc17d86978035accc473fb202816b51c54baa084ea1a0c65ec1",
+          "duration_s": 12.0,
+          "instruction_latency_ms": 0.69,
+          "session_id": "09ab70ff-ec20-464b-8c1f-6ffe37ad2d5c"
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "restore_history_index": 1
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "restore_snapshot",
+              "history_index": 1,
+              "label": "Cut 2 seconds to 4 seconds"
+            }
+          ],
+          "summary": {
+            "message": "Restored the selected historical timeline snapshot.",
+            "before_duration_s": 12.0,
+            "after_duration_s": 14.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+          "duration_s": 14.0
+        }
+      },
+      {
+        "step": 4,
+        "input": {
+          "say": "render",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "render"
+            }
+          ],
+          "summary": {
+            "before_duration_s": 14.0,
+            "after_duration_s": 14.0,
+            "message": "Render requested; use the render endpoint or CLI to export the timeline."
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+          "duration_s": 14.0,
+          "session_id": "09ab70ff-ec20-464b-8c1f-6ffe37ad2d5c"
+        },
+        "render_job": {
+          "job_id": "c3702fc3-ea28-4895-ab62-cddb28ab7f1b",
+          "status": "succeeded",
+          "progress": 100,
+          "result": {
+            "video_url": "/api/v1/jobs/c3702fc3-ea28-4895-ab62-cddb28ab7f1b/video",
+            "manifest_url": "/api/v1/jobs/c3702fc3-ea28-4895-ab62-cddb28ab7f1b/manifest",
+            "local_video_url": "/api/v1/jobs/c3702fc3-ea28-4895-ab62-cddb28ab7f1b/video",
+            "manifest": {
+              "manifest_version": "1.0.0",
+              "project": "IncuEdit",
+              "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+              "providers": {
+                "transcription": {
+                  "name": "manual_or_mock_transcript",
+                  "version": "1.0"
+                },
+                "instruction_parser": {
+                  "name": "deterministic_rules",
+                  "version": "1.0"
+                },
+                "renderer": {
+                  "name": "FFmpeg",
+                  "version": "runtime"
+                }
+              },
+              "models": [],
+              "settings": {
+                "fps": 30.0,
+                "time_policy": "current_timeline",
+                "caption_count": 0,
+                "word_effect_count": 0
+              },
+              "seed": 0,
+              "timings": {
+                "render_ms": 449.58
+              },
+              "sync_validation": {
+                "expected_timeline_duration_s": 14.0,
+                "video_stream_duration_s": 14.0,
+                "audio_stream_duration_s": 14.0,
+                "max_offset_frames": 0.0,
+                "max_length_difference_frames": 0.0
+              },
+              "cost_estimate": {
+                "currency": "USD",
+                "amount": 0.0,
+                "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+              },
+              "rights": {
+                "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+                "source_rights": "user_attested_at_upload",
+                "generated_media": false
+              },
+              "warnings": [],
+              "output": {
+                "path": "c3702fc3-ea28-4895-ab62-cddb28ab7f1b.mp4",
+                "duration_s": 14.0
+              }
+            }
+          },
+          "error": null,
+          "callback_url": null
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "11792ab5-7688-4da3-bc2e-7e6fc553a93b",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 2.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [],
+      "word_effects": [],
+      "music": null,
+      "warnings": [],
+      "history": [
+        {
+          "label": "Cut the first 2 seconds",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "11792ab5-7688-4da3-bc2e-7e6fc553a93b",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        },
+        {
+          "label": "restore snapshot",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "11792ab5-7688-4da3-bc2e-7e6fc553a93b",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 2.0,
+                "source_end": 4.0,
+                "speed": 1.0
+              },
+              {
+                "segment_id": "seg_0002",
+                "source_start": 6.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": []
+    },
+    "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+    "duration_s": 14.0
+  },
+  {
+    "session_file": "session_20.yaml",
+    "video": {
+      "video_id": "a2389a3c-c7ac-4434-a52c-c4022138a2bd",
+      "filename": "demo_media.mp4",
+      "duration_s": 16.0,
+      "fps_num": 30,
+      "fps_den": 1,
+      "fps": 30.0,
+      "has_audio": true,
+      "width": 640,
+      "height": 360,
+      "video_codec": "mpeg4",
+      "audio_codec": "aac",
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "rights_confirmed": true
+    },
+    "session_id": "90d6fc3c-ab15-499a-a968-8a12e7f49129",
+    "music_upload": null,
+    "steps": [
+      {
+        "step": 1,
+        "input": {
+          "say": "Auto-caption the whole video",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "auto_caption",
+              "captions_added": 5
+            }
+          ],
+          "summary": {
+            "message": "Edit applied. Time values refer to the current timeline.",
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "delta_s": 0.0,
+            "time_policy": "current_timeline"
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+          "duration_s": 16.0,
+          "instruction_latency_ms": 1.43,
+          "session_id": "90d6fc3c-ab15-499a-a968-8a12e7f49129"
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "say": "render",
+          "answer": null
+        },
+        "response": {
+          "status": "applied",
+          "operations": [
+            {
+              "type": "render"
+            }
+          ],
+          "summary": {
+            "before_duration_s": 16.0,
+            "after_duration_s": 16.0,
+            "message": "Render requested; use the render endpoint or CLI to export the timeline."
+          },
+          "question": null,
+          "options": [],
+          "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+          "duration_s": 16.0,
+          "session_id": "90d6fc3c-ab15-499a-a968-8a12e7f49129"
+        },
+        "render_job": {
+          "job_id": "02229bba-2827-47bf-ab61-54d6eb7c4f50",
+          "status": "succeeded",
+          "progress": 100,
+          "result": {
+            "video_url": "/api/v1/jobs/02229bba-2827-47bf-ab61-54d6eb7c4f50/video",
+            "manifest_url": "/api/v1/jobs/02229bba-2827-47bf-ab61-54d6eb7c4f50/manifest",
+            "local_video_url": "/api/v1/jobs/02229bba-2827-47bf-ab61-54d6eb7c4f50/video",
+            "manifest": {
+              "manifest_version": "1.0.0",
+              "project": "IncuEdit",
+              "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+              "providers": {
+                "transcription": {
+                  "name": "manual_or_mock_transcript",
+                  "version": "1.0"
+                },
+                "instruction_parser": {
+                  "name": "deterministic_rules",
+                  "version": "1.0"
+                },
+                "renderer": {
+                  "name": "FFmpeg",
+                  "version": "runtime"
+                }
+              },
+              "models": [],
+              "settings": {
+                "fps": 30.0,
+                "time_policy": "current_timeline",
+                "caption_count": 5,
+                "word_effect_count": 0
+              },
+              "seed": 0,
+              "timings": {
+                "render_ms": 1350.45
+              },
+              "sync_validation": {
+                "expected_timeline_duration_s": 16.0,
+                "video_stream_duration_s": 16.0,
+                "audio_stream_duration_s": 16.0,
+                "max_offset_frames": 0.0,
+                "max_length_difference_frames": 0.0
+              },
+              "cost_estimate": {
+                "currency": "USD",
+                "amount": 0.0,
+                "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+              },
+              "rights": {
+                "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+                "source_rights": "user_attested_at_upload",
+                "generated_media": false
+              },
+              "warnings": [],
+              "output": {
+                "path": "02229bba-2827-47bf-ab61-54d6eb7c4f50.mp4",
+                "duration_s": 16.0
+              }
+            }
+          },
+          "error": null,
+          "callback_url": null
+        }
+      }
+    ],
+    "final_timeline": {
+      "schema_version": "1.0.0",
+      "video_id": "a2389a3c-c7ac-4434-a52c-c4022138a2bd",
+      "source_duration_s": 16.0,
+      "fps": 30.0,
+      "has_audio": true,
+      "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+      "time_policy": "current_timeline",
+      "segments": [
+        {
+          "segment_id": "seg_0001",
+          "source_start": 0.0,
+          "source_end": 16.0,
+          "speed": 1.0
+        }
+      ],
+      "captions": [
+        {
+          "caption_id": "cap_0001",
+          "text": "Welcome to the channel.",
+          "start_word_id": "w001",
+          "end_word_id": "w004",
+          "word_ids": [
+            "w001",
+            "w002",
+            "w003",
+            "w004"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        },
+        {
+          "caption_id": "cap_0002",
+          "text": "Today we discuss pricing and cost.",
+          "start_word_id": "w005",
+          "end_word_id": "w010",
+          "word_ids": [
+            "w005",
+            "w006",
+            "w007",
+            "w008",
+            "w009",
+            "w010"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        },
+        {
+          "caption_id": "cap_0003",
+          "text": "I think pricing matters.",
+          "start_word_id": "w011",
+          "end_word_id": "w014",
+          "word_ids": [
+            "w011",
+            "w012",
+            "w013",
+            "w014"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        },
+        {
+          "caption_id": "cap_0004",
+          "text": "Um, like we can help.",
+          "start_word_id": "w015",
+          "end_word_id": "w019",
+          "word_ids": [
+            "w015",
+            "w016",
+            "w017",
+            "w018",
+            "w019"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        },
+        {
+          "caption_id": "cap_0005",
+          "text": "Thanks for watching.",
+          "start_word_id": "w020",
+          "end_word_id": "w022",
+          "word_ids": [
+            "w020",
+            "w021",
+            "w022"
+          ],
+          "style": {
+            "font_size": 36,
+            "color": "white",
+            "position": "bottom"
+          }
+        }
+      ],
+      "word_effects": [],
+      "music": null,
+      "history": [
+        {
+          "label": "Auto-caption the whole video",
+          "timeline": {
+            "schema_version": "1.0.0",
+            "video_id": "a2389a3c-c7ac-4434-a52c-c4022138a2bd",
+            "source_duration_s": 16.0,
+            "fps": 30.0,
+            "has_audio": true,
+            "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+            "time_policy": "current_timeline",
+            "segments": [
+              {
+                "segment_id": "seg_0001",
+                "source_start": 0.0,
+                "source_end": 16.0,
+                "speed": 1.0
+              }
+            ],
+            "captions": [],
+            "word_effects": [],
+            "music": null,
+            "warnings": []
+          }
+        }
+      ],
+      "redo": [],
+      "warnings": []
+    },
+    "timeline_hash": "14f9ef939c5f1969aeec84eff0649f4d0f7025f418ff48bb3aecb29b3cf2c480",
+    "duration_s": 16.0
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "1e360a2d-f704-479c-a024-5eb63e624b2f",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 1.0,
+      "source_end": 10.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [],
+  "word_effects": [],
+  "music": null,
+  "history": [
+    {
+      "label": "Keep only from 1 seconds to 10 seconds",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "1e360a2d-f704-479c-a024-5eb63e624b2f",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

@@ -1,0 +1,196 @@
+{
+  "session_file": "session_13.yaml",
+  "video": {
+    "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Add a caption 'Thanks for watching!' when I say thanks for watching",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "add_caption",
+            "text": "Thanks for watching!",
+            "word_ids": [
+              "w020",
+              "w021",
+              "w022"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "a1a5e241fa043c488cafe7f46a945c794984ab2c9bf7ea0ccf2c2556369bdf6d",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 0.44,
+        "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "Make that caption bigger",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "caption_resize",
+            "direction": "bigger",
+            "caption_ids": [
+              "cap_0001"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "1cf7c14d850cbfcc50627535c7c8f1bc2b9c21c9f906be7214384176f4a73560",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 0.39,
+        "session_id": "c755d7ce-2366-4b93-aa0b-b398115530f9"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [
+      {
+        "caption_id": "cap_0001",
+        "text": "Thanks for watching!",
+        "start_word_id": "w020",
+        "end_word_id": "w022",
+        "word_ids": [
+          "w020",
+          "w021",
+          "w022"
+        ],
+        "style": {
+          "font_size": 44,
+          "color": "white",
+          "position": "bottom"
+        }
+      }
+    ],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Add a caption 'Thanks for watching!' when I say thanks for watching",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      },
+      {
+        "label": "Make that caption bigger",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "0583f716-7774-4066-9e93-5a6c7d702a91",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [
+            {
+              "caption_id": "cap_0001",
+              "text": "Thanks for watching!",
+              "start_word_id": "w020",
+              "end_word_id": "w022",
+              "word_ids": [
+                "w020",
+                "w021",
+                "w022"
+              ],
+              "style": {
+                "font_size": 36,
+                "color": "white",
+                "position": "bottom"
+              }
+            }
+          ],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "1cf7c14d850cbfcc50627535c7c8f1bc2b9c21c9f906be7214384176f4a73560",
+  "duration_s": 16.0
+}

@@ -1,0 +1,52 @@
+{
+  "manifest_version": "1.0.0",
+  "project": "IncuEdit",
+  "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+  "providers": {
+    "transcription": {
+      "name": "manual_or_mock_transcript",
+      "version": "1.0"
+    },
+    "instruction_parser": {
+      "name": "deterministic_rules",
+      "version": "1.0"
+    },
+    "renderer": {
+      "name": "FFmpeg",
+      "version": "runtime"
+    }
+  },
+  "models": [],
+  "settings": {
+    "fps": 30.0,
+    "time_policy": "current_timeline",
+    "caption_count": 1,
+    "word_effect_count": 0
+  },
+  "seed": 0,
+  "timings": {
+    "render_ms": 467.73
+  },
+  "sync_validation": {
+    "expected_timeline_duration_s": 14.0,
+    "video_stream_duration_s": 14.0,
+    "audio_stream_duration_s": 14.0,
+    "max_offset_frames": 0.0,
+    "max_length_difference_frames": 0.0
+  },
+  "cost_estimate": {
+    "currency": "USD",
+    "amount": 0.0,
+    "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+  },
+  "rights": {
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "source_rights": "user_attested_at_upload",
+    "generated_media": false
+  },
+  "warnings": [],
+  "output": {
+    "path": "b8dd086e-6a75-4ca7-a035-2d325379506e.mp4",
+    "duration_s": 14.0
+  }
+}

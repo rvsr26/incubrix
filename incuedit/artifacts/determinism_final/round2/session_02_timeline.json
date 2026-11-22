@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "ba22eeaf-c486-4a77-856e-d57824e19fd1",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 0.0,
+      "source_end": 4.74,
+      "speed": 1.0
+    },
+    {
+      "segment_id": "seg_0002",
+      "source_start": 5.2,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [],
+  "word_effects": [],
+  "music": null,
+  "history": [
+    {
+      "label": "resolve clarification",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "ba22eeaf-c486-4a77-856e-d57824e19fd1",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "256fac0b-33a1-4568-a372-5082d20f1baa",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 0.0,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [],
+  "word_effects": [],
+  "music": null,
+  "history": [],
+  "redo": [],
+  "warnings": []
+}

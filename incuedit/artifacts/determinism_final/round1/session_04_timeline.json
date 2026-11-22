@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "c2b72d24-ec2b-440b-8f9f-31b292b5a1fe",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 0.0,
+      "source_end": 9.0,
+      "speed": 1.0
+    },
+    {
+      "segment_id": "seg_0002",
+      "source_start": 9.28,
+      "source_end": 9.6,
+      "speed": 1.0
+    },
+    {
+      "segment_id": "seg_0003",
+      "source_start": 9.88,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [],
+  "word_effects": [],
+  "music": null,
+  "history": [
+    {
+      "label": "Remove filler words",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "c2b72d24-ec2b-440b-8f9f-31b292b5a1fe",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

@@ -1,0 +1,8 @@
+openapi_version: 3.1.0
+fastapi_path_count: 19
+contract_path_count: 19
+missing_paths: []
+extra_paths: []
+method_mismatches: []
+passed: true
+

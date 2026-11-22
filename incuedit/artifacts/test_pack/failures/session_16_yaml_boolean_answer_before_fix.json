@@ -1,0 +1,5 @@
+{
+  "session_file": "session_16.yaml",
+  "error": "POST http://localhost:8000/api/v1/sessions/4a1020da-5c44-47a1-a755-4d938796ce54/instructions returned 422: {'error': {'code': 'IDEMPOTENCY_CONFLICT', 'message': 'This Idempotency-Key was already used with a different request.', 'retryable': False, 'details': {}}}",
+  "status": "failed"
+}

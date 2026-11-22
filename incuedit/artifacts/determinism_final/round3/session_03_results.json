@@ -1,0 +1,117 @@
+{
+  "session_file": "session_03.yaml",
+  "video": {
+    "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "c394dfda-9211-4e36-8717-616a87e41e3c",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Speed up from 5 seconds to 8 seconds by 2x",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "speed",
+            "start": 5.0,
+            "end": 8.0,
+            "factor": 2.0,
+            "time_policy": "current_timeline",
+            "overlap_rule": "newest speed instruction overrides the selected visible interval"
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 14.5,
+          "delta_s": -1.5,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "0a4dcba11720c362bf0b9d55547c0d94e394632fef6e15056684d45cdf736001",
+        "duration_s": 14.5,
+        "instruction_latency_ms": 0.52,
+        "session_id": "c394dfda-9211-4e36-8717-616a87e41e3c"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 5.0,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0002",
+        "source_start": 5.0,
+        "source_end": 8.0,
+        "speed": 2.0
+      },
+      {
+        "segment_id": "seg_0003",
+        "source_start": 8.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Speed up from 5 seconds to 8 seconds by 2x",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "ea4193df-a507-4a7d-9499-b90dd21eea18",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "0a4dcba11720c362bf0b9d55547c0d94e394632fef6e15056684d45cdf736001",
+  "duration_s": 14.5
+}

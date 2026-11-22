@@ -1,0 +1,68 @@
+{
+  "session_file": "session_11.yaml",
+  "video": {
+    "video_id": "aa42734f-968b-4461-9414-e997f6d098db",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "c8dd5269-3679-4a12-9532-3797f6191681",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Cut the first 16 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "rejected",
+        "operations": [],
+        "summary": {
+          "message": "This edit would remove the entire video; it was rejected.",
+          "code": "WHOLE_VIDEO_CUT",
+          "details": {}
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+        "duration_s": 16.0,
+        "session_id": "c8dd5269-3679-4a12-9532-3797f6191681"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "aa42734f-968b-4461-9414-e997f6d098db",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+  "duration_s": 16.0
+}

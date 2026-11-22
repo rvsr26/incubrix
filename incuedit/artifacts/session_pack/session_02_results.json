@@ -1,0 +1,146 @@
+{
+  "session_file": "session_02.yaml",
+  "video": {
+    "video_id": "a8f10dea-a232-4f45-92db-466209a4ef73",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "a099ac22-890b-41eb-b758-d204a445bee2",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Remove the part about pricing",
+        "answer": null
+      },
+      "response": {
+        "status": "needs_clarification",
+        "operations": [],
+        "summary": {
+          "message": "No destructive edit was made."
+        },
+        "question": "I found 3 possible matches for 'pricing'. Which one should I remove, or should I remove all?",
+        "options": [
+          {
+            "id": 1,
+            "label": "Occurrence 1: 4.00s\u20134.55s",
+            "start_s": 4.0,
+            "end_s": 4.55
+          },
+          {
+            "id": 2,
+            "label": "Occurrence 2: 4.74s\u20135.20s",
+            "start_s": 4.74,
+            "end_s": 5.2
+          },
+          {
+            "id": 3,
+            "label": "Occurrence 3: 7.00s\u20137.45s",
+            "start_s": 7.0,
+            "end_s": 7.45
+          }
+        ],
+        "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+        "duration_s": 16.0,
+        "session_id": "a099ac22-890b-41eb-b758-d204a445bee2"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "Remove the part about pricing",
+        "answer": "second one"
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "cut_words",
+            "word_ids": [
+              "w010"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Removed the selected transcript occurrence(s).",
+          "before_duration_s": 15.54,
+          "after_duration_s": 15.54,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "e1322e041f3b3a7ad0143feca769e5cb7e4762b8c7b870c6e99adb2729a63187",
+        "duration_s": 15.54,
+        "session_id": "a099ac22-890b-41eb-b758-d204a445bee2"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "a8f10dea-a232-4f45-92db-466209a4ef73",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 4.74,
+        "speed": 1.0
+      },
+      {
+        "segment_id": "seg_0002",
+        "source_start": 5.2,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "resolve clarification",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "a8f10dea-a232-4f45-92db-466209a4ef73",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "e1322e041f3b3a7ad0143feca769e5cb7e4762b8c7b870c6e99adb2729a63187",
+  "duration_s": 15.540000000000001
+}

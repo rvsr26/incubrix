@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "44a35bb8-6345-48c2-98eb-224f00589a0e",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 2.0,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [],
+  "word_effects": [],
+  "music": {
+    "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\ad290fb7-ef06-417e-83f4-5e7dbb1811c1.wav",
+    "filename": "demo_music.wav",
+    "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+    "active": true,
+    "duck_under_speech": true,
+    "rights": "user_attested"
+  },
+  "history": [
+    {
+      "label": "upload background music asset",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "44a35bb8-6345-48c2-98eb-224f00589a0e",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "Add background music",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "44a35bb8-6345-48c2-98eb-224f00589a0e",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": {
+          "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\ad290fb7-ef06-417e-83f4-5e7dbb1811c1.wav",
+          "filename": "demo_music.wav",
+          "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+          "active": false,
+          "duck_under_speech": true,
+          "rights": "user_attested"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "label": "Cut the first 2 seconds",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "44a35bb8-6345-48c2-98eb-224f00589a0e",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": {
+          "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\ad290fb7-ef06-417e-83f4-5e7dbb1811c1.wav",
+          "filename": "demo_music.wav",
+          "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+          "active": true,
+          "duck_under_speech": true,
+          "rights": "user_attested"
+        },
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

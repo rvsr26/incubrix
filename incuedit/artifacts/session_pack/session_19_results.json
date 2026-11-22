@@ -1,0 +1,279 @@
+{
+  "session_file": "session_19.yaml",
+  "video": {
+    "video_id": "5c275b07-f500-4547-9a9a-c8cea789a84b",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "c244804f-f8fc-458a-a0bc-cd6363b0bf17",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Cut the first 2 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "cut",
+            "current_start": 0.0,
+            "current_end": 2.0,
+            "time_policy": "current_timeline"
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 14.0,
+          "delta_s": -2.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+        "duration_s": 14.0,
+        "instruction_latency_ms": 0.8,
+        "session_id": "c244804f-f8fc-458a-a0bc-cd6363b0bf17"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "Cut 2 seconds to 4 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "cut",
+            "current_start": 2.0,
+            "current_end": 4.0,
+            "time_policy": "current_timeline"
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 14.0,
+          "after_duration_s": 12.0,
+          "delta_s": -2.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "07afbf1bb324ccc17d86978035accc473fb202816b51c54baa084ea1a0c65ec1",
+        "duration_s": 12.0,
+        "instruction_latency_ms": 1.25,
+        "session_id": "c244804f-f8fc-458a-a0bc-cd6363b0bf17"
+      }
+    },
+    {
+      "step": 3,
+      "input": {
+        "restore_history_index": 1
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "restore_snapshot",
+            "history_index": 1,
+            "label": "Cut 2 seconds to 4 seconds"
+          }
+        ],
+        "summary": {
+          "message": "Restored the selected historical timeline snapshot.",
+          "before_duration_s": 12.0,
+          "after_duration_s": 14.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+        "duration_s": 14.0
+      }
+    },
+    {
+      "step": 4,
+      "input": {
+        "say": "render",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "render"
+          }
+        ],
+        "summary": {
+          "before_duration_s": 14.0,
+          "after_duration_s": 14.0,
+          "message": "Render requested; use the render endpoint or CLI to export the timeline."
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+        "duration_s": 14.0,
+        "session_id": "c244804f-f8fc-458a-a0bc-cd6363b0bf17"
+      },
+      "render_job": {
+        "job_id": "532969b2-8df4-44cf-a32f-ba9593e8d10f",
+        "status": "succeeded",
+        "progress": 100,
+        "result": {
+          "video_url": "/api/v1/jobs/532969b2-8df4-44cf-a32f-ba9593e8d10f/video",
+          "manifest_url": "/api/v1/jobs/532969b2-8df4-44cf-a32f-ba9593e8d10f/manifest",
+          "local_video_url": "/api/v1/jobs/532969b2-8df4-44cf-a32f-ba9593e8d10f/video",
+          "manifest": {
+            "manifest_version": "1.0.0",
+            "project": "IncuEdit",
+            "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+            "providers": {
+              "transcription": {
+                "name": "manual_or_mock_transcript",
+                "version": "1.0"
+              },
+              "instruction_parser": {
+                "name": "deterministic_rules",
+                "version": "1.0"
+              },
+              "renderer": {
+                "name": "FFmpeg",
+                "version": "runtime"
+              }
+            },
+            "models": [],
+            "settings": {
+              "fps": 30.0,
+              "time_policy": "current_timeline",
+              "caption_count": 0,
+              "word_effect_count": 0
+            },
+            "seed": 0,
+            "timings": {
+              "render_ms": 575.32
+            },
+            "sync_validation": {
+              "expected_timeline_duration_s": 14.0,
+              "video_stream_duration_s": 14.0,
+              "audio_stream_duration_s": 14.0,
+              "max_offset_frames": 0.0,
+              "max_length_difference_frames": 0.0
+            },
+            "cost_estimate": {
+              "currency": "USD",
+              "amount": 0.0,
+              "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+            },
+            "rights": {
+              "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+              "source_rights": "user_attested_at_upload",
+              "generated_media": false
+            },
+            "warnings": [],
+            "output": {
+              "path": "532969b2-8df4-44cf-a32f-ba9593e8d10f.mp4",
+              "duration_s": 14.0
+            }
+          }
+        },
+        "error": null,
+        "callback_url": null
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "5c275b07-f500-4547-9a9a-c8cea789a84b",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 2.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "warnings": [],
+    "history": [
+      {
+        "label": "Cut the first 2 seconds",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "5c275b07-f500-4547-9a9a-c8cea789a84b",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      },
+      {
+        "label": "restore snapshot",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "5c275b07-f500-4547-9a9a-c8cea789a84b",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 2.0,
+              "source_end": 4.0,
+              "speed": 1.0
+            },
+            {
+              "segment_id": "seg_0002",
+              "source_start": 6.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": []
+  },
+  "timeline_hash": "7dbc8e901f05828c978a4ffd7d851de69fbb54540ba7212df949e11abc86d354",
+  "duration_s": 14.0
+}

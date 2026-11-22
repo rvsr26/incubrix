@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "video_id": "3066e57e-e917-4cd4-ab75-94f7fea64211",
+  "source_duration_s": 16.0,
+  "fps": 30.0,
+  "has_audio": true,
+  "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+  "time_policy": "current_timeline",
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "source_start": 2.0,
+      "source_end": 16.0,
+      "speed": 1.0
+    }
+  ],
+  "captions": [
+    {
+      "caption_id": "cap_0001",
+      "text": "Welcome!",
+      "start_word_id": "w001",
+      "end_word_id": "w004",
+      "word_ids": [
+        "w001",
+        "w002",
+        "w003",
+        "w004"
+      ],
+      "style": {
+        "font_size": 36,
+        "color": "white",
+        "position": "bottom"
+      }
+    }
+  ],
+  "word_effects": [],
+  "music": null,
+  "history": [
+    {
+      "label": "Add a caption 'Welcome!' when I say welcome to the channel",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "3066e57e-e917-4cd4-ab75-94f7fea64211",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    },
+    {
+      "label": "Cut the first 2 seconds",
+      "timeline": {
+        "schema_version": "1.0.0",
+        "video_id": "3066e57e-e917-4cd4-ab75-94f7fea64211",
+        "source_duration_s": 16.0,
+        "fps": 30.0,
+        "has_audio": true,
+        "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+        "time_policy": "current_timeline",
+        "segments": [
+          {
+            "segment_id": "seg_0001",
+            "source_start": 0.0,
+            "source_end": 16.0,
+            "speed": 1.0
+          }
+        ],
+        "captions": [
+          {
+            "caption_id": "cap_0001",
+            "text": "Welcome!",
+            "start_word_id": "w001",
+            "end_word_id": "w004",
+            "word_ids": [
+              "w001",
+              "w002",
+              "w003",
+              "w004"
+            ],
+            "style": {
+              "font_size": 36,
+              "color": "white",
+              "position": "bottom"
+            }
+          }
+        ],
+        "word_effects": [],
+        "music": null,
+        "warnings": []
+      }
+    }
+  ],
+  "redo": [],
+  "warnings": []
+}

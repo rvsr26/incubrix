@@ -1,0 +1,294 @@
+{
+  "session_file": "session_17.yaml",
+  "video": {
+    "video_id": "3f4972b5-467b-49aa-afa5-9aa54b010d93",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "7e8cccbc-8387-4d9c-9756-ceb765f5aad0",
+  "music_upload": {
+    "status": "uploaded",
+    "filename": "demo_music.wav",
+    "message": "Music uploaded. Say 'add background music' to apply it with speech ducking."
+  },
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Add background music",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "add_background_music",
+            "duck_under_speech": true
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "f0440a2fa79f4f45aaff7a6e2f8c6be6803f96d1c73b7f8a8f3bc495783150d7",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 0.55,
+        "session_id": "7e8cccbc-8387-4d9c-9756-ceb765f5aad0"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "Cut the first 2 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "cut",
+            "current_start": 0.0,
+            "current_end": 2.0,
+            "time_policy": "current_timeline"
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 14.0,
+          "delta_s": -2.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+        "duration_s": 14.0,
+        "instruction_latency_ms": 0.72,
+        "session_id": "7e8cccbc-8387-4d9c-9756-ceb765f5aad0"
+      }
+    },
+    {
+      "step": 3,
+      "input": {
+        "say": "render",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "render"
+          }
+        ],
+        "summary": {
+          "before_duration_s": 14.0,
+          "after_duration_s": 14.0,
+          "message": "Render requested; use the render endpoint or CLI to export the timeline."
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+        "duration_s": 14.0,
+        "session_id": "7e8cccbc-8387-4d9c-9756-ceb765f5aad0"
+      },
+      "render_job": {
+        "job_id": "f9f6abde-da1e-43b0-982e-fb9be59af06a",
+        "status": "succeeded",
+        "progress": 100,
+        "result": {
+          "video_url": "/api/v1/jobs/f9f6abde-da1e-43b0-982e-fb9be59af06a/video",
+          "manifest_url": "/api/v1/jobs/f9f6abde-da1e-43b0-982e-fb9be59af06a/manifest",
+          "local_video_url": "/api/v1/jobs/f9f6abde-da1e-43b0-982e-fb9be59af06a/video",
+          "manifest": {
+            "manifest_version": "1.0.0",
+            "project": "IncuEdit",
+            "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+            "providers": {
+              "transcription": {
+                "name": "manual_or_mock_transcript",
+                "version": "1.0"
+              },
+              "instruction_parser": {
+                "name": "deterministic_rules",
+                "version": "1.0"
+              },
+              "renderer": {
+                "name": "FFmpeg",
+                "version": "runtime"
+              }
+            },
+            "models": [],
+            "settings": {
+              "fps": 30.0,
+              "time_policy": "current_timeline",
+              "caption_count": 0,
+              "word_effect_count": 0
+            },
+            "seed": 0,
+            "timings": {
+              "render_ms": 1517.35
+            },
+            "sync_validation": {
+              "expected_timeline_duration_s": 14.0,
+              "video_stream_duration_s": 14.0,
+              "audio_stream_duration_s": 14.0,
+              "max_offset_frames": 0.0,
+              "max_length_difference_frames": 0.0
+            },
+            "cost_estimate": {
+              "currency": "USD",
+              "amount": 0.0,
+              "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+            },
+            "rights": {
+              "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+              "source_rights": "user_attested_at_upload",
+              "generated_media": false
+            },
+            "warnings": [],
+            "output": {
+              "path": "f9f6abde-da1e-43b0-982e-fb9be59af06a.mp4",
+              "duration_s": 14.0
+            }
+          }
+        },
+        "error": null,
+        "callback_url": null
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "3f4972b5-467b-49aa-afa5-9aa54b010d93",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 2.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": {
+      "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\130b255f-9747-4405-9884-83dcace924ae.wav",
+      "filename": "demo_music.wav",
+      "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+      "active": true,
+      "duck_under_speech": true,
+      "rights": "user_attested"
+    },
+    "history": [
+      {
+        "label": "upload background music asset",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "3f4972b5-467b-49aa-afa5-9aa54b010d93",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      },
+      {
+        "label": "Add background music",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "3f4972b5-467b-49aa-afa5-9aa54b010d93",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": {
+            "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\130b255f-9747-4405-9884-83dcace924ae.wav",
+            "filename": "demo_music.wav",
+            "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+            "active": false,
+            "duck_under_speech": true,
+            "rights": "user_attested"
+          },
+          "warnings": []
+        }
+      },
+      {
+        "label": "Cut the first 2 seconds",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "3f4972b5-467b-49aa-afa5-9aa54b010d93",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": {
+            "path": "C:\\Users\\Vishnu\\Downloads\\incubrix\\IncuEdit_PS2_Complete_Project\\incuedit\\data\\videos\\130b255f-9747-4405-9884-83dcace924ae.wav",
+            "filename": "demo_music.wav",
+            "asset_sha256": "ef73d1d61ebd35a198bea5a891fe14164d3cae47258ae4e9512cc7d5d4764ee2",
+            "active": true,
+            "duck_under_speech": true,
+            "rights": "user_attested"
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "9abb2f1d9c063669403455b54d73ad3ba74a9be8e3e9ac10d4a931ab0cb7a71f",
+  "duration_s": 14.0
+}

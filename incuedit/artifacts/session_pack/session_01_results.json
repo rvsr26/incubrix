@@ -1,0 +1,287 @@
+{
+  "session_file": "session_01.yaml",
+  "video": {
+    "video_id": "2ebe2025-47fc-4ea4-88d3-fe40c25afa0b",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "5160bdbe-cd5b-49a7-82c3-29680d7aa17c",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Add a caption 'Welcome!' when I say welcome to the channel",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "add_caption",
+            "text": "Welcome!",
+            "word_ids": [
+              "w001",
+              "w002",
+              "w003",
+              "w004"
+            ]
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 16.0,
+          "delta_s": 0.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "fcc1598057a0c4270a166592fa1da54113c7d1b02fe7e75dae3fa0c375591544",
+        "duration_s": 16.0,
+        "instruction_latency_ms": 6.17,
+        "session_id": "5160bdbe-cd5b-49a7-82c3-29680d7aa17c"
+      }
+    },
+    {
+      "step": 2,
+      "input": {
+        "say": "Cut the first 2 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "cut",
+            "current_start": 0.0,
+            "current_end": 2.0,
+            "time_policy": "current_timeline"
+          }
+        ],
+        "summary": {
+          "message": "Edit applied. Time values refer to the current timeline.",
+          "before_duration_s": 16.0,
+          "after_duration_s": 14.0,
+          "delta_s": -2.0,
+          "time_policy": "current_timeline"
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+        "duration_s": 14.0,
+        "instruction_latency_ms": 3.55,
+        "session_id": "5160bdbe-cd5b-49a7-82c3-29680d7aa17c"
+      }
+    },
+    {
+      "step": 3,
+      "input": {
+        "say": "render",
+        "answer": null
+      },
+      "response": {
+        "status": "applied",
+        "operations": [
+          {
+            "type": "render"
+          }
+        ],
+        "summary": {
+          "before_duration_s": 14.0,
+          "after_duration_s": 14.0,
+          "message": "Render requested; use the render endpoint or CLI to export the timeline."
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+        "duration_s": 14.0,
+        "session_id": "5160bdbe-cd5b-49a7-82c3-29680d7aa17c"
+      },
+      "render_job": {
+        "job_id": "6c0a5113-e583-4c82-933e-b9d2639a988e",
+        "status": "succeeded",
+        "progress": 100,
+        "result": {
+          "video_url": "/api/v1/jobs/6c0a5113-e583-4c82-933e-b9d2639a988e/video",
+          "manifest_url": "/api/v1/jobs/6c0a5113-e583-4c82-933e-b9d2639a988e/manifest",
+          "local_video_url": "/api/v1/jobs/6c0a5113-e583-4c82-933e-b9d2639a988e/video",
+          "manifest": {
+            "manifest_version": "1.0.0",
+            "project": "IncuEdit",
+            "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+            "providers": {
+              "transcription": {
+                "name": "manual_or_mock_transcript",
+                "version": "1.0"
+              },
+              "instruction_parser": {
+                "name": "deterministic_rules",
+                "version": "1.0"
+              },
+              "renderer": {
+                "name": "FFmpeg",
+                "version": "runtime"
+              }
+            },
+            "models": [],
+            "settings": {
+              "fps": 30.0,
+              "time_policy": "current_timeline",
+              "caption_count": 1,
+              "word_effect_count": 0
+            },
+            "seed": 0,
+            "timings": {
+              "render_ms": 515.19
+            },
+            "sync_validation": {
+              "expected_timeline_duration_s": 14.0,
+              "video_stream_duration_s": 14.0,
+              "audio_stream_duration_s": 14.0,
+              "max_offset_frames": 0.0,
+              "max_length_difference_frames": 0.0
+            },
+            "cost_estimate": {
+              "currency": "USD",
+              "amount": 0.0,
+              "basis": "configured COST_ESTIMATE_USD_PER_VIDEO_MINUTE; excludes local compute"
+            },
+            "rights": {
+              "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+              "source_rights": "user_attested_at_upload",
+              "generated_media": false
+            },
+            "warnings": [],
+            "output": {
+              "path": "6c0a5113-e583-4c82-933e-b9d2639a988e.mp4",
+              "duration_s": 14.0
+            }
+          }
+        },
+        "error": null,
+        "callback_url": null
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "2ebe2025-47fc-4ea4-88d3-fe40c25afa0b",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 2.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [
+      {
+        "caption_id": "cap_0001",
+        "text": "Welcome!",
+        "start_word_id": "w001",
+        "end_word_id": "w004",
+        "word_ids": [
+          "w001",
+          "w002",
+          "w003",
+          "w004"
+        ],
+        "style": {
+          "font_size": 36,
+          "color": "white",
+          "position": "bottom"
+        }
+      }
+    ],
+    "word_effects": [],
+    "music": null,
+    "history": [
+      {
+        "label": "Add a caption 'Welcome!' when I say welcome to the channel",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "2ebe2025-47fc-4ea4-88d3-fe40c25afa0b",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      },
+      {
+        "label": "Cut the first 2 seconds",
+        "timeline": {
+          "schema_version": "1.0.0",
+          "video_id": "2ebe2025-47fc-4ea4-88d3-fe40c25afa0b",
+          "source_duration_s": 16.0,
+          "fps": 30.0,
+          "has_audio": true,
+          "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+          "time_policy": "current_timeline",
+          "segments": [
+            {
+              "segment_id": "seg_0001",
+              "source_start": 0.0,
+              "source_end": 16.0,
+              "speed": 1.0
+            }
+          ],
+          "captions": [
+            {
+              "caption_id": "cap_0001",
+              "text": "Welcome!",
+              "start_word_id": "w001",
+              "end_word_id": "w004",
+              "word_ids": [
+                "w001",
+                "w002",
+                "w003",
+                "w004"
+              ],
+              "style": {
+                "font_size": 36,
+                "color": "white",
+                "position": "bottom"
+              }
+            }
+          ],
+          "word_effects": [],
+          "music": null,
+          "warnings": []
+        }
+      }
+    ],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "1200d5ed64fbae5baee3f7567596bfd639c2670b6b8cd702bc1789e454d02ceb",
+  "duration_s": 14.0
+}

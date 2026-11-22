@@ -1,0 +1,72 @@
+{
+  "session_file": "session_10.yaml",
+  "video": {
+    "video_id": "58d0b07e-c553-4d81-907c-0d15cffd416c",
+    "filename": "demo_media.mp4",
+    "duration_s": 16.0,
+    "fps_num": 30,
+    "fps_den": 1,
+    "fps": 30.0,
+    "has_audio": true,
+    "width": 640,
+    "height": 360,
+    "video_codec": "mpeg4",
+    "audio_codec": "aac",
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "rights_confirmed": true
+  },
+  "session_id": "4761af80-6533-4789-aa0c-03c80a5dcb3e",
+  "music_upload": null,
+  "steps": [
+    {
+      "step": 1,
+      "input": {
+        "say": "Cut 15 seconds to 20 seconds",
+        "answer": null
+      },
+      "response": {
+        "status": "rejected",
+        "operations": [],
+        "summary": {
+          "message": "The requested time range is outside the current video.",
+          "code": "TIME_OUT_OF_RANGE",
+          "details": {
+            "start": 15.0,
+            "end": 20.0,
+            "duration": 16.0
+          }
+        },
+        "question": null,
+        "options": [],
+        "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+        "duration_s": 16.0,
+        "session_id": "4761af80-6533-4789-aa0c-03c80a5dcb3e"
+      }
+    }
+  ],
+  "final_timeline": {
+    "schema_version": "1.0.0",
+    "video_id": "58d0b07e-c553-4d81-907c-0d15cffd416c",
+    "source_duration_s": 16.0,
+    "fps": 30.0,
+    "has_audio": true,
+    "source_sha256": "6ef412c82113941297a7cfb4394ccfb5cd931fa5dd6b067ad53a39debc10568d",
+    "time_policy": "current_timeline",
+    "segments": [
+      {
+        "segment_id": "seg_0001",
+        "source_start": 0.0,
+        "source_end": 16.0,
+        "speed": 1.0
+      }
+    ],
+    "captions": [],
+    "word_effects": [],
+    "music": null,
+    "history": [],
+    "redo": [],
+    "warnings": []
+  },
+  "timeline_hash": "bae7df7235d7111e97325da0766a4a21b3d49453a9152fcf3934f9a655801cfd",
+  "duration_s": 16.0
+}

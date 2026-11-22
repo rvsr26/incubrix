@@ -1,0 +1,1 @@
+Verification note: Running the pytest executable directly in this environment did not place the repository root on sys.path and failed during test discovery (ModuleNotFoundError: app). The documented command `python -m pytest -q` then completed successfully: 56 passed in 2.57s.
