@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IncuEdit Studio — Prompt-Based Video Editing Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #101726;
+      --surface-elevated: #162035;
+      --border: #22304d;
+      --border-focus: #4e6ef2;
+      --primary: #4e6ef2;
+      --primary-hover: #3b5bdb;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 15% 10%, #172554 0%, transparent 40%),
+                  radial-gradient(circle at 85% 90%, #1e1b4b 0%, transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 24px 60px;
+    }
+    /* Topbar */
+    header.topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #4e6ef2, #7048e8);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(78, 110, 242, 0.35);
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .system-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+    /* Main Layout */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .studio-grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.2px;
+    }
+    .step-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #253352;
+      color: #93c5fd;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    /* Forms & Inputs */
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    input[type=text], textarea, select {
+      width: 100%;
+      background: #090e1a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    input[type=text]:focus, textarea:focus {
+      border-color: var(--border-focus);
+    }
+    textarea {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.5;
+      resize: vertical;
+      min-height: 120px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4e6ef2, #4361ee);
+      color: #fff;
+      border: 0;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn:hover:not(:disabled) {
+      background: linear-gradient(135deg, #3b5bdb, #364fc7);
+      transform: translateY(-1px);
+    }
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-secondary {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: #334155;
+    }
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 11px;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 12px 0;
+      cursor: pointer;
+    }
+    .checkbox-row input {
+      margin-top: 3px;
+      cursor: pointer;
+    }
+    /* Video player box */
+    .player-box {
+      background: #000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+    }
+    .player-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    /* Metadata grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .meta-item {
+      background: #0a101f;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+    }
+    .meta-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #60a5fa;
+      font-family: var(--font-mono);
+    }
+    .meta-lbl {
+      font-size: 10px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    /* Interactive Timeline Track */
+    .timeline-container {
+      margin-top: 16px;
+      background: #090e1a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .timeline-track {
+      height: 24px;
+      background: #141c2e;
+      border-radius: 4px;
+      display: flex;
+      gap: 2px;
+      overflow: hidden;
+      padding: 2px;
+      position: relative;
+    }
+    .timeline-segment {
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      border-radius: 2px;
+      height: 100%;
+      transition: width 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .timeline-segment:hover {
+      filter: brightness(1.2);
+    }
+    /* Response Panel */
+    .response-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #0a1120;
+      padding: 14px;
+      margin-top: 14px;
+      min-height: 90px;
+    }
+    .response-card.status-applied {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .response-card.status-needs_clarification {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(245, 158, 11, 0.05);
+    }
+    .response-card.status-rejected {
+      border-color: rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.05);
+    }
+    .response-status-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+    }
+    .status-applied .response-status-badge { background: #064e3b; color: #34d399; }
+    .status-needs_clarification .response-status-badge { background: #78350f; color: #fbbf24; }
+    .status-rejected .response-status-badge { background: #7f1d1d; color: #f87171; }
+    .response-message {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    /* Quick prompt chips */
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .chip {
+      background: #141f36;
+      border: 1px solid #233352;
+      border-radius: 14px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .chip:hover {
+      background: #253352;
+      color: #fff;
+    }
+    /* Clarification Box */
+    .clarify-panel {
+      background: #191c18;
+      border: 1px solid #854d0e;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-top: 10px;
+    }
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    /* Transcript list */
+    .transcript-scroll {
+      max-height: 240px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #090e1a;
+      padding: 8px;
+    }
+    .word-pill {
+      display: inline-block;
+      background: #131c2e;
+      border: 1px solid #24344f;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin: 2px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .word-pill:hover { background: #263859; }
+    .word-pill.speaker-2 { border-color: #818cf8; color: #c7d2fe; }
+    /* History List */
+    .history-drawer {
+      max-height: 180px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0d1526;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .hidden { display: none !important; }
+    /* Progress bar */
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: #1e293b;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-badge">IE</div>
+        <div>
+          <div class="brand-title">IncuEdit Studio</div>
+          <div class="brand-subtitle">Prompt-Based Reversible Video Editing Engine (PS2)</div>
+        </div>
+      </div>
+      <div class="system-status">
+        <span class="badge"><span class="badge-dot"></span> <span id="apiState">Connecting…</span></span>
+        <span class="badge">Current-Timeline Policy</span>
+        <a id="otioBtn" class="btn btn-secondary btn-sm hidden" target="_blank">Export OTIO</a>
+      </div>
+    </header>
+
+    <!-- Studio Grid -->
+    <div class="studio-grid">
+      <!-- Left Column: Source Intake, Video Preview & Interactive Transcript -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <!-- Step 1: Video Intake -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title"><span class="step-circle">1</span> Source Media Intake</h2>
+            <span class="badge" id="videoStatusBadge">Awaiting Upload</span>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">
+            Accepts MP4 or MOV. The original source file remains immutable (SHA-256 verified).
+          </p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <input type="file" id="videoFile" accept="video/mp4,video/quicktime,.mp4,.mov">
+            <button class="btn" id="uploadBtn">Upload & Probe</button>
+          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="rightsCheck" checked>
+            <span>I confirm that I own or have permission to process this media for assessment evaluation.</span>
+          </label>
+
+          <!-- Video Preview Player -->
+          <div class="player-box hidden" id="previewBox" style="margin-top:14px;">
+            <video id="player" controls></video>
+          </div>
+
+          <!-- Video Metadata Metrics -->
+          <div class="meta-grid hidden" id="metaGrid">
+            <div class="meta-item"><div class="meta-val" id="metaDur">—</div><div class="meta-lbl">Duration</div></div>
+            <div class="meta-item"><div class="meta-val" id="metaFps">—</div><div class="meta-lbl">Frame Rate</div></div>
+            <div class="meta-item"><div class="meta-val" id="metaRes">—</div><div class="meta-lbl">Resolution</div></div>
+            <div class="meta-item"><div class="meta-val" id="metaAudio">—</div><div class="meta-lbl">Audio Stream</div></div>
+          </div>
+        </section>
+
+        <!-- Step 2: Transcript Alignment -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title"><span class="step-circle">2</span> Word-Level Transcript & Session</h2>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-secondary btn-sm" id="loadSampleBtn">Load Sample</button>
+              <button class="btn btn-sm" id="createSessionBtn" disabled>Create Session</button>
+            </div>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">
+            Each word anchors stable ID, source timing, speaker, and confidence.
+          </p>
+          <textarea id="transcriptText" spellcheck="false" placeholder="Paste word-level transcript JSON here..."></textarea>
+          
+          <!-- Interactive Word Viewer -->
+          <div class="transcript-scroll hidden" id="transcriptViewer" style="margin-top:10px;"></div>
+        </section>
+
+        <!-- Background Music Track -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title">Background Music & Ducking</h2>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">
+            Upload a licensed music track (WAV, MP3, AAC). Automatically side-chain ducked under speech.
+          </p>
+          <div style="display:flex; gap:10px;">
+            <input type="file" id="musicFile" accept="audio/*">
+            <button class="btn btn-secondary btn-sm" id="uploadMusicBtn" disabled>Attach Music</button>
+          </div>
+          <span class="badge hidden" id="musicStatusBadge" style="margin-top:8px;">Music Ready</span>
+        </section>
+      </div>
+
+      <!-- Right Column: Natural Language Prompt Console & Timeline Visualizer -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <!-- Step 3: Natural Language Prompt Console -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title"><span class="step-circle">3</span> Natural Language Prompt Console</h2>
+            <span class="badge" id="sessionBadge">No Session</span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <input type="text" id="promptInput" placeholder="e.g. Cut the first 30 seconds..." disabled>
+            <button class="btn" id="applyBtn" disabled>Apply</button>
+          </div>
+
+          <!-- Quick Suggestion Chips -->
+          <div class="chips-row">
+            <span class="chip" data-cmd="Add a caption 'Welcome!' when I say welcome to the channel">Caption "Welcome!"</span>
+            <span class="chip" data-cmd="Cut the first 2 seconds">Cut first 2s</span>
+            <span class="chip" data-cmd="Remove all filler words">Cut fillers</span>
+            <span class="chip" data-cmd="Remove silences longer than 2 seconds">Cut pauses >2s</span>
+            <span class="chip" data-cmd="Make that caption red">Caption red</span>
+            <span class="chip" data-cmd="Speed up from 2 to 4 by 2x">Speed 2x</span>
+            <span class="chip" data-cmd="Add background music and lower it while I speak">Add music</span>
+            <span class="chip" data-cmd="Actually, put the intro back">Restore intro</span>
+            <span class="chip" data-cmd="Undo">Undo</span>
+          </div>
+
+          <!-- Clarification Interactive Sub-Panel -->
+          <div class="clarify-panel hidden" id="clarifyBox">
+            <div style="font-size:12px; font-weight:700; color:#fde047;" id="clarifyQuestion"></div>
+            <div class="options-grid" id="clarifyOptions"></div>
+            <div style="display:flex; gap:8px; margin-top:8px;">
+              <input type="text" id="clarifyAnswerInput" placeholder="Or type: second one / all / confirm...">
+              <button class="btn btn-secondary btn-sm" id="clarifySendBtn">Submit Answer</button>
+            </div>
+          </div>
+
+          <!-- 3-Way Response Display -->
+          <div class="response-card" id="responseCard">
+            <div class="response-status-badge">Awaiting Instruction</div>
+            <div class="response-message" style="color:var(--text-muted);">
+              Create a session, then type an edit command above or choose a quick prompt.
+            </div>
+          </div>
+
+          <!-- Timeline Track Visualizer -->
+          <div class="timeline-container">
+            <div class="timeline-header">
+              <span>Timeline Decision List (<span id="segCount">1</span> segments)</span>
+              <span>Duration: <b id="tlDuration" style="color:#60a5fa;">0.00s</b></span>
+            </div>
+            <div class="timeline-track" id="timelineTrack" title="Timeline visual slices"></div>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-dim); margin-top:4px;">
+              <span>0:00</span>
+              <span id="tlHash">Hash: —</span>
+              <span id="tlEndClock">0:00</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Step 4: History, Undo/Redo & Asynchronous Render -->
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title"><span class="step-circle">4</span> History, Undo/Redo & Export</h2>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-secondary btn-sm" id="undoBtn" disabled>Undo</button>
+              <button class="btn btn-secondary btn-sm" id="redoBtn" disabled>Redo</button>
+              <button class="btn btn-sm" id="renderBtn" disabled>Render MP4</button>
+            </div>
+          </div>
+
+          <!-- Progress state -->
+          <div class="hidden" id="renderProgressBox">
+            <div style="display:flex; justify-content:space-between; font-size:11px; margin-top:4px;">
+              <span id="renderStatusText">Rendering timeline with FFmpeg...</span>
+              <span id="renderPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" id="renderProgressFill"></div></div>
+          </div>
+
+          <!-- Rendered Video Player -->
+          <div class="player-box hidden" id="renderPreviewBox" style="margin-top:14px;">
+            <video id="renderedPlayer" controls></video>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a id="downloadRenderBtn" class="btn btn-sm hidden" download="rendered_output.mp4">Download MP4</a>
+            <a id="viewManifestBtn" class="btn btn-secondary btn-sm hidden" target="_blank">View Manifest</a>
+          </div>
+
+          <!-- Edit History Snapshot Stack -->
+          <div style="margin-top:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Edit History Stack</div>
+            <div class="history-drawer" id="historyList">
+              <div style="font-size:12px; color:var(--text-dim);">No edits applied yet.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let video = null;
+    let sessionId = null;
+    let sampleData = [
+      {"word_id":"w001","text":"Welcome","start":0.30,"end":0.75,"speaker":"host","confidence":0.99},
+      {"word_id":"w002","text":"to","start":0.77,"end":0.91,"speaker":"host","confidence":0.98},
+      {"word_id":"w003","text":"the","start":0.92,"end":1.05,"speaker":"host","confidence":0.99},
+      {"word_id":"w004","text":"channel.","start":1.07,"end":1.65,"speaker":"host","confidence":0.99},
+      {"word_id":"w005","text":"Today","start":2.30,"end":2.70,"speaker":"host","confidence":0.98},
+      {"word_id":"w006","text":"we","start":2.72,"end":2.86,"speaker":"host","confidence":0.98},
+      {"word_id":"w007","text":"will","start":2.88,"end":3.10,"speaker":"host","confidence":0.97},
+      {"word_id":"w008","text":"discuss","start":3.12,"end":3.60,"speaker":"host","confidence":0.98},
+      {"word_id":"w009","text":"pricing","start":7.50,"end":8.10,"speaker":"host","confidence":0.99},
+      {"word_id":"w010","text":"and","start":8.12,"end":8.28,"speaker":"host","confidence":0.98},
+      {"word_id":"w011","text":"cost.","start":8.30,"end":8.70,"speaker":"host","confidence":0.98},
+      {"word_id":"w012","text":"Thanks","start":12.00,"end":12.40,"speaker":"guest","confidence":0.94}
+    ];
+
+    $('transcriptText').value = JSON.stringify(sampleData, null, 2);
+
+    async function callApi(path, options = {}) {
+      options.headers = {
+        ...(options.headers || {}),
+        ...(options.method === 'POST' ? { 'Idempotency-Key': crypto.randomUUID() } : {})
+      };
+      const res = await fetch(path, options);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error?.message || `HTTP ${res.status}`);
+      }
+      return data;
+    }
+
+    // Health check
+    callApi('/api/v1/health')
+      .then(() => $('apiState').textContent = 'API Ready')
+      .catch(() => $('apiState').textContent = 'Backend Offline');
+
+    // Load sample transcript
+    $('loadSampleBtn').onclick = () => {
+      $('transcriptText').value = JSON.stringify(sampleData, null, 2);
+    };
+
+    // Upload Video
+    $('uploadBtn').onclick = async () => {
+      const file = $('videoFile').files[0];
+      if (!file) return alert('Select an MP4 or MOV video file.');
+      if (!$('rightsCheck').checked) return alert('Confirm media rights first.');
+
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('rights_confirmed', 'true');
+      $('uploadBtn').disabled = true;
+      $('uploadBtn').textContent = 'Uploading...';
+
+      try {
+        const res = await callApi('/api/v1/videos/upload', { method: 'POST', body: fd });
+        video = res.video;
+        $('videoStatusBadge').textContent = 'Loaded: ' + file.name;
+        $('previewBox').classList.remove('hidden');
+        $('player').src = URL.createObjectURL(file);
+        
+        $('metaGrid').classList.remove('hidden');
+        $('metaDur').textContent = video.duration_s.toFixed(1) + 's';
+        $('metaFps').textContent = (video.fps_num / video.fps_den).toFixed(2);
+        $('metaRes').textContent = `${video.width}x${video.height}`;
+        $('metaAudio').textContent = video.has_audio ? 'Stereo AAC' : 'None';
+
+        $('createSessionBtn').disabled = false;
+      } catch (err) {
+        alert('Upload failed: ' + err.message);
+      } finally {
+        $('uploadBtn').disabled = false;
+        $('uploadBtn').textContent = 'Upload & Probe';
+      }
+    };
+
+    // Create Session
+    $('createSessionBtn').onclick = async () => {
+      if (!video) return;
+      let words;
+      try {
+        words = JSON.parse($('transcriptText').value);
+      } catch {
+        return alert('Transcript must be valid JSON.');
+      }
+      try {
+        const res = await callApi('/api/v1/sessions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ video_id: video.video_id, transcript: words })
+        });
+        sessionId = res.session_id;
+        $('sessionBadge').textContent = `Session: ${sessionId.slice(0, 8)}`;
+        $('promptInput').disabled = false;
+        $('applyBtn').disabled = false;
+        $('uploadMusicBtn').disabled = false;
+        $('otioBtn').href = `/api/v1/sessions/${sessionId}/otio?download=true`;
+        $('otioBtn').classList.remove('hidden');
+
+        renderTranscriptViewer(words);
+        refreshTimeline();
+      } catch (err) {
+        alert('Failed to create session: ' + err.message);
+      }
+    };
+
+    function renderTranscriptViewer(words) {
+      const viewer = $('transcriptViewer');
+      viewer.innerHTML = '';
+      viewer.classList.remove('hidden');
+      words.forEach(w => {
+        const span = document.createElement('span');
+        span.className = `word-pill ${w.speaker === 'guest' || w.speaker === 'speaker_2' ? 'speaker-2' : ''}`;
+        span.textContent = w.text || w.word;
+        span.title = `[${w.speaker || 'speaker_1'}] ${w.start.toFixed(2)}s - ${w.end.toFixed(2)}s (conf: ${w.confidence || 1.0})`;
+        span.onclick = () => {
+          if ($('player').duration) {
+            $('player').currentTime = w.start;
+            $('player').play();
+          }
+        };
+        viewer.appendChild(span);
+      });
+    }
+
+    // Refresh Timeline state
+    async function refreshTimeline() {
+      if (!sessionId) return;
+      try {
+        const res = await callApi(`/api/v1/sessions/${sessionId}/timeline`);
+        const tl = res.timeline;
+        $('tlDuration').textContent = res.duration_s.toFixed(2) + 's';
+        $('tlEndClock').textContent = Math.floor(res.duration_s / 60) + ':' + (Math.floor(res.duration_s % 60) + '').padStart(2, '0');
+        $('tlHash').textContent = 'Hash: ' + res.timeline_hash.slice(0, 8);
+        $('segCount').textContent = tl.segments.length;
+
+        // Render timeline track
+        const track = $('timelineTrack');
+        track.innerHTML = '';
+        tl.segments.forEach(seg => {
+          const div = document.createElement('div');
+          div.className = 'timeline-segment';
+          div.style.flex = (seg.source_end - seg.source_start) / Math.max(tl.source_duration_s, 0.001);
+          div.title = `${seg.segment_id}: Source ${seg.source_start.toFixed(2)}s - ${seg.source_end.toFixed(2)}s @ ${seg.speed}x`;
+          track.appendChild(div);
+        });
+
+        // History Drawer
+        const histBox = $('historyList');
+        histBox.innerHTML = '';
+        const history = tl.history || [];
+        if (!history.length) {
+          histBox.innerHTML = '<div style="font-size:12px; color:var(--text-dim);">No edits applied yet.</div>';
+        } else {
+          history.slice().reverse().forEach((item, idx) => {
+            const hDiv = document.createElement('div');
+            hDiv.className = 'history-item';
+            hDiv.innerHTML = `<span><b>#${history.length - idx}</b> ${item.label}</span><button class="btn btn-secondary btn-sm" onclick="restoreSnapshot(${history.length - 1 - idx})">Restore</button>`;
+            histBox.appendChild(hDiv);
+          });
+        }
+
+        $('undoBtn').disabled = !history.length;
+        $('redoBtn').disabled = !(tl.redo && tl.redo.length);
+        $('renderBtn').disabled = false;
+      } catch (err) {
+        console.error('Refresh timeline failed:', err);
+      }
+    }
+
+    window.restoreSnapshot = async (index) => {
+      try {
+        await callApi(`/api/v1/sessions/${sessionId}/restore`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ history_index: index })
+        });
+        refreshTimeline();
+      } catch (err) {
+        alert('Restore failed: ' + err.message);
+      }
+    };
+
+    // Apply instruction
+    async function sendInstruction(text, answer = null) {
+      if (!sessionId) return;
+      const say = text || $('promptInput').value.trim();
+      if (!say && !answer) return;
+
+      $('applyBtn').disabled = true;
+      try {
+        const res = await callApi(`/api/v1/sessions/${sessionId}/instructions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ say, answer })
+        });
+        renderResponse(res);
+        if (res.status === 'applied') {
+          $('promptInput').value = '';
+        }
+        refreshTimeline();
+      } catch (err) {
+        renderResponse({ status: 'rejected', summary: { message: err.message } });
+      } finally {
+        $('applyBtn').disabled = false;
+      }
+    }
+
+    function renderResponse(res) {
+      const card = $('responseCard');
+      card.className = `response-card status-${res.status}`;
+      card.innerHTML = `
+        <div class="response-status-badge">${res.status.replace('_', ' ')}</div>
+        <div class="response-message">${res.summary?.message || 'Operation processed.'}</div>
+      `;
+
+      if (res.status === 'needs_clarification') {
+        $('clarifyBox').classList.remove('hidden');
+        $('clarifyQuestion').textContent = res.question;
+        const optBox = $('clarifyOptions');
+        optBox.innerHTML = '';
+        (res.options || []).forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'btn btn-secondary btn-sm';
+          btn.textContent = opt.label;
+          btn.onclick = () => sendInstruction($('promptInput').value, String(opt.id || opt.label));
+          optBox.appendChild(btn);
+        });
+      } else {
+        $('clarifyBox').classList.add('hidden');
+      }
+    }
+
+    $('applyBtn').onclick = () => sendInstruction();
+    $('promptInput').addEventListener('keydown', e => { if (e.key === 'Enter') sendInstruction(); });
+    $('clarifySendBtn').onclick = () => sendInstruction($('promptInput').value, $('clarifyAnswerInput').value);
+
+    // Quick chips
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.onclick = () => {
+        $('promptInput').value = chip.dataset.cmd;
+        sendInstruction(chip.dataset.cmd);
+      };
+    });
+
+    $('undoBtn').onclick = () => sendInstruction('Undo');
+    $('redoBtn').onclick = () => sendInstruction('Redo');
+
+    // Attach music
+    $('uploadMusicBtn').onclick = async () => {
+      const file = $('musicFile').files[0];
+      if (!file) return alert('Select an audio file.');
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('rights_confirmed', 'true');
+      try {
+        await callApi(`/api/v1/sessions/${sessionId}/music`, { method: 'POST', body: fd });
+        $('musicStatusBadge').classList.remove('hidden');
+        refreshTimeline();
+      } catch (err) {
+        alert('Failed to upload music: ' + err.message);
+      }
+    };
+
+    // Render Video
+    $('renderBtn').onclick = async () => {
+      if (!sessionId) return;
+      $('renderBtn').disabled = true;
+      $('renderProgressBox').classList.remove('hidden');
+      $('renderStatusText').textContent = 'Queued in background...';
+      $('renderProgressFill').style.width = '15%';
+
+      try {
+        const jobRes = await callApi(`/api/v1/sessions/${sessionId}/render`, { method: 'POST' });
+        const jobId = jobRes.job_id;
+
+        // Poll job
+        for (let i = 0; i < 300; i++) {
+          await new Promise(r => setTimeout(r, 1000));
+          const job = await callApi(`/api/v1/jobs/${jobId}`);
+          $('renderPercent').textContent = job.progress + '%';
+          $('renderProgressFill').style.width = job.progress + '%';
+
+          if (job.status === 'succeeded') {
+            $('renderStatusText').textContent = 'Render completed successfully!';
+            $('renderPreviewBox').classList.remove('hidden');
+            $('renderedPlayer').src = job.result.video_url;
+            $('downloadRenderBtn').href = job.result.local_video_url || job.result.video_url;
+            $('downloadRenderBtn').classList.remove('hidden');
+            $('viewManifestBtn').href = job.result.manifest_url;
+            $('viewManifestBtn').classList.remove('hidden');
+            break;
+          } else if (job.status === 'failed') {
+            throw new Error(job.error?.message || 'Render failed.');
+          }
+        }
+      } catch (err) {
+        alert('Render error: ' + err.message);
+      } finally {
+        $('renderBtn').disabled = false;
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+openapi: 3.1.0
+info:
+  title: IncuEdit API
+  version: 1.0.0
+  description: Prompt-based deterministic video editing engine. All API routes are under /api/v1. Every POST requires an Idempotency-Key header.
+servers:
+  - url: http://localhost:8000
+security: []
+components:
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: {type: string, minLength: 1}
+      description: Same key and same request returns the first response; reusing a key with a different body returns IDEMPOTENCY_CONFLICT.
+    CorrelationId:
+      name: X-Correlation-Id
+      in: header
+      required: false
+      schema: {type: string}
+  schemas:
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, retryable, details]
+          properties:
+            code: {type: string, pattern: '^[A-Z0-9_]+$'}
+            message: {type: string}
+            retryable: {type: boolean}
+            details: {type: object}
+    Word:
+      type: object
+      required: [word_id, text, start, end, speaker, confidence]
+      properties:
+        word_id: {type: string}
+        text: {type: string}
+        start: {type: number, minimum: 0}
+        end: {type: number, exclusiveMinimum: 0}
+        speaker: {type: string}
+        confidence: {type: number, minimum: 0, maximum: 1}
+    Instruction:
+      type: object
+      required: [say]
+      properties:
+        say: {type: string}
+        answer: {type: [string, 'null']}
+    Job:
+      type: object
+      required: [job_id, status, progress]
+      properties:
+        job_id: {type: string}
+        status: {enum: [queued, running, succeeded, failed]}
+        progress: {type: integer, minimum: 0, maximum: 100}
+        result: {type: [object, 'null']}
+        error: {type: [object, 'null']}
+paths:
+  /:
+    get:
+      summary: Browser-based editing studio
+      responses:
+        '200': {description: Studio HTML page}
+  /health:
+    get:
+      summary: Root liveness endpoint for platform health checks
+      responses:
+        '200': {description: Healthy}
+  /ready:
+    get:
+      summary: Root readiness endpoint for platform health checks
+      responses:
+        '200': {description: Ready}
+  /api/v1/health:
+    get:
+      summary: Liveness check
+      responses:
+        '200': {description: Healthy}
+  /api/v1/ready:
+    get:
+      summary: Readiness check
+      responses:
+        '200': {description: Ready}
+  /api/v1/videos/upload:
+    post:
+      summary: Upload MP4/MOV and inspect metadata
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {$ref: '#/components/parameters/CorrelationId'}]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file, rights_confirmed]
+              properties:
+                file: {type: string, format: binary}
+                rights_confirmed: {type: boolean}
+      responses:
+        '200': {description: Uploaded video and metadata}
+        '400': {description: Invalid request}
+        '422': {description: Upload validation error}
+  /api/v1/videos/from-url:
+    post:
+      summary: Download and inspect a public HTTPS MP4/MOV URL
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [url, rights_confirmed]
+              properties:
+                url: {type: string, format: uri}
+                rights_confirmed: {type: boolean}
+      responses:
+        '200': {description: Imported video}
+        '422': {description: URL or media validation failure}
+  /api/v1/videos/{video_id}:
+    get:
+      summary: Read video metadata
+      parameters: [{name: video_id, in: path, required: true, schema: {type: string}}]
+      responses:
+        '200': {description: Video metadata}
+        '404': {description: Video not found}
+  /api/v1/videos/{video_id}/transcribe:
+    post:
+      summary: Start optional local transcription job
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: video_id, in: path, required: true, schema: {type: string}}]
+      responses:
+        '202': {description: Job queued}
+  /api/v1/sessions:
+    post:
+      summary: Create editing session with word-timed transcript
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [video_id, transcript]
+              properties:
+                video_id: {type: string}
+                transcript: {type: array, items: {$ref: '#/components/schemas/Word'}}
+      responses:
+        '200': {description: Session created}
+        '422': {description: Invalid transcript}
+  /api/v1/sessions/{session_id}/timeline:
+    get:
+      summary: Read current timeline and deterministic hash
+      parameters: [{name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Timeline}}
+  /api/v1/sessions/{session_id}/otio:
+    get:
+      summary: Export edited timeline in OpenTimelineIO (OTIO) JSON schema format
+      parameters:
+        - {name: session_id, in: path, required: true, schema: {type: string}}
+        - {name: download, in: query, required: false, schema: {type: boolean, default: false}}
+      responses: {'200': {description: OpenTimelineIO schema JSON}}
+  /api/v1/sessions/{session_id}/transcript:
+    get:
+      summary: Read session transcript
+      parameters: [{name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Word transcript}}
+  /api/v1/sessions/{session_id}/instructions:
+    post:
+      summary: Apply one natural-language instruction
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Instruction'}
+      responses:
+        '200': {description: Applied, needs clarification, or rejected}
+        '422': {description: Request validation error}
+  /api/v1/sessions/{session_id}/restore:
+    post:
+      summary: Restore a saved history snapshot by zero-based history index
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {type: object, required: [history_index], properties: {history_index: {type: integer, minimum: 0}}}
+      responses: {'200': {description: Historical snapshot restored}}
+  /api/v1/sessions/{session_id}/history:
+    get:
+      summary: Get edit history and redo stack
+      parameters: [{name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Session edit history}}
+  /api/v1/sessions/{session_id}/undo:
+    post:
+      summary: Undo the last edit operation
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Last operation reverted}}
+  /api/v1/sessions/{session_id}/redo:
+    post:
+      summary: Redo the previously undone edit operation
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Undone operation reapplied}}
+  /api/v1/sessions/{session_id}/music:
+    post:
+      summary: Upload licensed music asset for background ducking
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file, rights_confirmed]
+              properties:
+                file: {type: string, format: binary}
+                rights_confirmed: {type: boolean}
+      responses: {'200': {description: Music uploaded}}
+  /api/v1/sessions/{session_id}/render:
+    post:
+      summary: Start background render job
+      parameters: [{$ref: '#/components/parameters/IdempotencyKey'}, {name: session_id, in: path, required: true, schema: {type: string}}]
+      responses: {'202': {description: Render job queued}}
+  /api/v1/jobs/{job_id}:
+    get:
+      summary: Read background job state and progress
+      parameters: [{name: job_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Job status}}
+  /api/v1/jobs/{job_id}/video:
+    get:
+      summary: Download rendered video
+      parameters: [{name: job_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: MP4 output}}
+  /api/v1/jobs/{job_id}/manifest:
+    get:
+      summary: Download render manifest
+      parameters: [{name: job_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: JSON manifest}}
