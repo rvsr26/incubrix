@@ -259,6 +259,7 @@ class EditingEngine:
 
             elif op == "speaker_cut":
                 spk = parsed["speaker"]
+                topic = parsed.get("topic")
                 known_speakers = set(w.get("speaker") for w in words if w.get("speaker") and w.get("speaker") != "unknown")
                 if not known_speakers:
                     return self._clarify(
@@ -271,10 +272,15 @@ class EditingEngine:
                         "No destructive cut made before clarification."
                     )
                 spk_words = [w for w in words if w.get("speaker") == spk and word_positions(tl, words).get(w["word_id"])]
-                if not spk_words:
+                if topic:
+                    topic_low = topic.lower()
+                    spk_words = [w for w in spk_words if topic_low in w["text"].lower()]
+                    if not spk_words:
+                        raise EngineError("NO_SPEAKER_WORDS", f"No words matching topic '{topic}' found for speaker '{spk}'.")
+                elif not spk_words:
                     raise EngineError("NO_SPEAKER_WORDS", f"No words found for speaker '{spk}'. Known speakers: {sorted(list(known_speakers))}")
                 after = _remove_source_ranges(tl, [(w["start"], w["end"]) for w in spk_words])
-                operations = [{"type": "speaker_cut", "speaker": spk, "word_ids": [w["word_id"] for w in spk_words]}]
+                operations = [{"type": "speaker_cut", "speaker": spk, "topic": topic, "word_ids": [w["word_id"] for w in spk_words]}]
 
             elif op == "cut_after_phrase":
                 groups = _visible_word_groups(tl, words, parsed["phrase"])

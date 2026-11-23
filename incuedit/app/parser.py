@@ -153,10 +153,22 @@ def parse_single_instruction(text: str, duration_s: float | None = None) -> dict
     if m:
         return {"op": "cut_after_phrase", "phrase": m.group(1).strip()}
 
-    # Speaker cuts: "Remove speaker 2", "Remove what speaker 2 said"
-    m = re.search(r"(?:remove|cut|delete)\s+(?:everything\s+)?(?:what\s+)?(?:from\s+)?speaker[_\s]+([0-9a-zA-Z]+)(?:\s+said)?", low)
-    if m:
-        return {"op": "speaker_cut", "speaker": f"speaker_{m.group(1)}"}
+    # Speaker cuts: "Remove speaker 2", "Remove what speaker 2 said", "remove everything the second speaker said about price"
+    m_spk = re.search(r"(?:remove|cut|delete)\s+(?:everything\s+)?(?:what\s+)?(?:the\s+)?(?:from\s+)?(?:(first|second|third|1st|2nd|3rd)\s+speaker|speaker[_\s]+([0-9a-zA-Z]+))(?:\s+said)?(?:\s+about\s+([a-zA-Z0-9_\-\s]+))?", low)
+    if m_spk:
+        ord_spk, num_spk, topic = m_spk.group(1), m_spk.group(2), m_spk.group(3)
+        spk_id = "speaker_1"
+        if ord_spk:
+            if "second" in ord_spk or "2nd" in ord_spk:
+                spk_id = "speaker_2"
+            elif "third" in ord_spk or "3rd" in ord_spk:
+                spk_id = "speaker_3"
+            else:
+                spk_id = "speaker_1"
+        elif num_spk:
+            spk_id = f"speaker_{num_spk.strip().strip('_')}"
+        topic_clean = topic.strip() if topic else None
+        return {"op": "speaker_cut", "speaker": spk_id, "topic": topic_clean}
 
     # Time-based cuts
     m = re.search(r"(?:cut|remove|delete)\s+(?:the\s+)?(?:first\s+)?(.+?)\s*(?:-|to|through)\s*(.+)$", low)

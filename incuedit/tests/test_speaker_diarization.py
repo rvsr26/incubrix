@@ -88,6 +88,23 @@ def test_speaker_cut_with_known_speakers_applies_cleanly(base_session):
     assert r["operations"][0]["type"] == "speaker_cut"
     assert duration(base_session["timeline"]) < 16.0
 
+def test_two_speakers_remove_everything_second_speaker_said_about_price(base_session):
+    """Test two-speaker level requirement: 'remove everything the second speaker said about price'."""
+    base_session["transcript"] = [
+        {"word_id": "w1", "text": "What is the cost?", "start": 0.5, "end": 1.5, "speaker": "speaker_1", "confidence": 0.99},
+        {"word_id": "w2", "text": "The price is fifty dollars.", "start": 1.6, "end": 3.0, "speaker": "speaker_2", "confidence": 0.99},
+        {"word_id": "w3", "text": "Have a great day.", "start": 3.2, "end": 4.5, "speaker": "speaker_2", "confidence": 0.99},
+        {"word_id": "w4", "text": "Thank you.", "start": 4.6, "end": 5.5, "speaker": "speaker_1", "confidence": 0.99},
+    ]
+    engine = EditingEngine()
+    r = engine.apply(base_session, "remove everything the second speaker said about price")
+    assert r["status"] == "applied"
+    assert r["operations"][0]["type"] == "speaker_cut"
+    assert r["operations"][0]["speaker"] == "speaker_2"
+    assert r["operations"][0]["topic"] == "price"
+    assert "w2" in r["operations"][0]["word_ids"]
+    assert "w3" not in r["operations"][0]["word_ids"]
+
 def test_overlapping_speech_detection():
     """Detect overlapping speech boundaries in word-aligned transcript."""
     words = [
