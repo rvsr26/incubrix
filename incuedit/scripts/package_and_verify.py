@@ -15,11 +15,12 @@ import json
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-WORKSPACE_DIR = ROOT_DIR.parent.parent
+WORKSPACE_DIR = ROOT_DIR.parent
 FINAL_ZIP = WORKSPACE_DIR / "IncuEdit_FINAL.zip"
+FINAL_SUBMISSION_ZIP = WORKSPACE_DIR / "IncuEdit_FINAL_SUBMISSION.zip"
 
 print(f"Project root: {ROOT_DIR}", flush=True)
-print(f"Output ZIP target: {FINAL_ZIP}", flush=True)
+print(f"Output ZIP target: {FINAL_SUBMISSION_ZIP}", flush=True)
 
 EXCLUDE_PATTERNS = {
     "node_modules",
@@ -35,18 +36,19 @@ def should_exclude(rel_path: str) -> bool:
     for part in parts:
         if part in EXCLUDE_PATTERNS or part.endswith(".pyc"):
             return True
-    if "data" in parts and ("renders" in parts or "videos" in parts):
+    if "data" in parts and ("renders" in parts or "videos" in parts or "temp" in parts):
         if not rel_path.endswith(".gitkeep"):
             return True
     return False
 
-# 1. Package IncuEdit_FINAL.zip
-print("\n--- Step 1: Packaging IncuEdit_FINAL.zip ---", flush=True)
-if FINAL_ZIP.exists():
-    FINAL_ZIP.unlink()
+# 1. Package IncuEdit_FINAL_SUBMISSION.zip (and duplicate to IncuEdit_FINAL.zip)
+print("\n--- Step 1: Packaging IncuEdit_FINAL_SUBMISSION.zip ---", flush=True)
+for target_zip in [FINAL_SUBMISSION_ZIP, FINAL_ZIP]:
+    if target_zip.exists():
+        target_zip.unlink()
 
 file_count = 0
-with zipfile.ZipFile(FINAL_ZIP, "w", zipfile.ZIP_DEFLATED) as zf:
+with zipfile.ZipFile(FINAL_SUBMISSION_ZIP, "w", zipfile.ZIP_DEFLATED) as zf:
     for root, dirs, files in os.walk(ROOT_DIR):
         for f in files:
             full_path = Path(root) / f
@@ -57,9 +59,12 @@ with zipfile.ZipFile(FINAL_ZIP, "w", zipfile.ZIP_DEFLATED) as zf:
             zf.write(full_path, arcname)
             file_count += 1
 
-zip_size_bytes = FINAL_ZIP.stat().st_size
+# Duplicate to IncuEdit_FINAL.zip for full compatibility
+shutil.copyfile(FINAL_SUBMISSION_ZIP, FINAL_ZIP)
+
+zip_size_bytes = FINAL_SUBMISSION_ZIP.stat().st_size
 zip_size_mb = zip_size_bytes / (1024 * 1024)
-print(f"Successfully created {FINAL_ZIP.name}", flush=True)
+print(f"Successfully created {FINAL_SUBMISSION_ZIP.name}", flush=True)
 print(f"Total files packed: {file_count}", flush=True)
 print(f"Size: {zip_size_bytes:,} bytes ({zip_size_mb:.2f} MB)", flush=True)
 
@@ -70,7 +75,7 @@ if temp_base.exists():
 temp_base.mkdir(parents=True, exist_ok=True)
 
 print(f"\n--- Step 2: Extracting to clean directory: {temp_base} ---", flush=True)
-with zipfile.ZipFile(FINAL_ZIP, "r") as zf:
+with zipfile.ZipFile(FINAL_SUBMISSION_ZIP, "r") as zf:
     zf.extractall(temp_base)
 
 EXTRACTED_APP_DIR = temp_base / "incuedit"
@@ -85,6 +90,8 @@ required_checks = [
     "tests/test_scenarios_40.py",
     "tests/test_api.py",
     "tests/test_timeline.py",
+    "tests/test_security.py",
+    "tests/test_speaker_diarization.py",
     "scripts/verify_determinism.py",
     "scripts/session_runner.py",
     "scripts/validate_contract.py",
@@ -95,7 +102,14 @@ required_checks = [
     "REPORT.md",
     "SOURCES.md",
     "AI_USE.md",
-    "Assessment2_Rajala_Vishnu_Sathwick_Reddy.xlsx",
+    "SUBMISSION_ACTIONS.md",
+    "DEMO_RECORDING_SCRIPT.md",
+    "SUBMISSION_CHECKLIST.md",
+    "GOOGLE_FORM_ANSWERS.md",
+    "DEPLOYMENT_GUIDE.md",
+    "TEST_EVIDENCE_INDEX.md",
+    "FINAL_VERIFICATION_REPORT.md",
+    "Assessment2_Rajala_Vishnu_Sathwick_Reddy_FINAL.xlsx",
     "openapi.yaml",
 ]
 
@@ -104,6 +118,17 @@ if missing:
     print(f"FATAL: Missing required files in extracted ZIP: {missing}", flush=True)
     sys.exit(1)
 print(f"All {len(required_checks)} required key files and artifacts verified in extracted directory!", flush=True)
+
+# Verify workbook Declaration is 100% blank
+import openpyxl
+wb_check = openpyxl.load_workbook(EXTRACTED_APP_DIR / "Assessment2_Rajala_Vishnu_Sathwick_Reddy_FINAL.xlsx")
+decl_sheet = wb_check["7_Declaration"]
+decl_cells = [decl_sheet[f"B{r}"].value for r in range(4, 14)]
+print(f"Extracted workbook 7_Declaration B4:B13: {decl_cells}", flush=True)
+if any(val is not None for val in decl_cells):
+    print("FATAL: 7_Declaration contains non-blank entries!", flush=True)
+    sys.exit(1)
+print("Confirmed: Candidate declaration is properly left completely blank for personal review.", flush=True)
 
 # 3. Run Pytest in extracted directory
 print("\n--- Step 3: Running 99 Pytest Suite in Extracted Directory ---", flush=True)
@@ -253,7 +278,9 @@ for item in sorted(list(EXTRACTED_APP_DIR.glob("*"))):
 
 print("\n=======================================================", flush=True)
 print("ALL VERIFICATIONS COMPLETED SUCCESSFULLY FROM EXTRACTED ZIP!", flush=True)
-print(f"Final ZIP Location: {FINAL_ZIP}")
-print(f"Final ZIP Size: {zip_size_bytes:,} bytes ({zip_size_mb:.2f} MB)")
-print(f"Extracted Directory: {EXTRACTED_APP_DIR}")
+print(f"Final Submission ZIP: {FINAL_SUBMISSION_ZIP}")
+print(f"Final Legacy ZIP:     {FINAL_ZIP}")
+print(f"Archive Size:         {zip_size_bytes:,} bytes ({zip_size_mb:.2f} MB)")
+print(f"Total Files Packed:   {file_count}")
+print(f"Extracted Directory:  {EXTRACTED_APP_DIR}")
 print("=======================================================", flush=True)
