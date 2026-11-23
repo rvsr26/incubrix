@@ -646,12 +646,17 @@
 
     $('transcriptText').value = JSON.stringify(sampleData, null, 2);
 
+    const API_BASE = (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '8000'))
+      ? 'http://localhost:8000'
+      : '';
+
     async function callApi(path, options = {}) {
       options.headers = {
         ...(options.headers || {}),
         ...(options.method === 'POST' ? { 'Idempotency-Key': crypto.randomUUID() } : {})
       };
-      const res = await fetch(path, options);
+      const url = path.startsWith('http') ? path : `${API_BASE}${path}`;
+      const res = await fetch(url, options);
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         throw new Error(data.error?.message || `HTTP ${res.status}`);
@@ -723,7 +728,7 @@
         $('promptInput').disabled = false;
         $('applyBtn').disabled = false;
         $('uploadMusicBtn').disabled = false;
-        $('otioBtn').href = `/api/v1/sessions/${sessionId}/otio?download=true`;
+        $('otioBtn').href = `${API_BASE}/api/v1/sessions/${sessionId}/otio?download=true`;
         $('otioBtn').classList.remove('hidden');
 
         renderTranscriptViewer(words);
@@ -913,10 +918,13 @@
           if (job.status === 'succeeded') {
             $('renderStatusText').textContent = 'Render completed successfully!';
             $('renderPreviewBox').classList.remove('hidden');
-            $('renderedPlayer').src = job.result.video_url;
-            $('downloadRenderBtn').href = job.result.local_video_url || job.result.video_url;
+            const vUrl = job.result.video_url;
+            $('renderedPlayer').src = vUrl.startsWith('http') ? vUrl : `${API_BASE}${vUrl}`;
+            const dlUrl = job.result.local_video_url || job.result.video_url;
+            $('downloadRenderBtn').href = dlUrl.startsWith('http') ? dlUrl : `${API_BASE}${dlUrl}`;
             $('downloadRenderBtn').classList.remove('hidden');
-            $('viewManifestBtn').href = job.result.manifest_url;
+            const mUrl = job.result.manifest_url;
+            $('viewManifestBtn').href = mUrl.startsWith('http') ? mUrl : `${API_BASE}${mUrl}`;
             $('viewManifestBtn').classList.remove('hidden');
             break;
           } else if (job.status === 'failed') {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Word, VideoMetadata, Timeline, InstructionResponse } from './types';
 
-const API_BASE = (typeof window !== 'undefined' && window.location.port && window.location.port !== '8000')
+const API_BASE = (typeof window !== 'undefined' && (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '8000')))
   ? 'http://localhost:8000'
   : '';
 

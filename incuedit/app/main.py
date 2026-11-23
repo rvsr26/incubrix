@@ -8,7 +8,7 @@ from typing import Any
 import httpx
 from fastapi import FastAPI, UploadFile, File, Form, Header, Request, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
+from fastapi.responses import FileResponse, JSONResponse, HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 from app.config import settings
 from app.errors import EngineError
@@ -27,7 +27,7 @@ app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_credentials=True,all
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
-    return JSONResponse(status_code=204, content=None)
+    return Response(status_code=204)
 app.mount("/static",StaticFiles(directory=Path(__file__).resolve().parent.parent/"web"),name="static")
 _frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _frontend_dist.exists():
@@ -39,16 +39,68 @@ JOBS: dict[str,dict]={}
 IDEMPOTENCY: dict[str,dict]={}
 engine=EditingEngine()
 
-@app.middleware("http")
-async def request_context(request: Request, call_next):
-    corr=request.headers.get("X-Correlation-Id") or str(uuid.uuid4())
-    request.state.correlation_id=corr
-    started=time.perf_counter()
-    response=await call_next(request)
-    elapsed=(time.perf_counter()-started)*1000
-    response.headers["X-Correlation-Id"]=corr
-    logger.info(json.dumps({"timestamp":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"level":"INFO","job_id":None,"correlation_id":corr,"method":request.method,"path":request.url.path,"status_code":response.status_code,"latency_ms":round(elapsed,2)}))
-    return response
+class RequestContextMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+
+        corr = str(uuid.uuid4())
+        headers = scope.get("headers", [])
+        for k, v in headers:
+            if k.lower() == b"x-correlation-id":
+                corr = v.decode("latin1", errors="ignore")
+                break
+        scope.setdefault("state", {})["correlation_id"] = corr
+
+        method = scope.get("method", "")
+        path = scope.get("path", "")
+        if method == "POST" and path.startswith("/api/v1/"):
+            has_idem = any(k.lower() == b"idempotency-key" for k, _ in headers)
+            if not has_idem:
+                body = json.dumps({"error":{"code":"IDEMPOTENCY_KEY_REQUIRED","message":"Every POST request must include an Idempotency-Key header.","retryable":False,"details":{}}}).encode("utf-8")
+                await send({
+                    "type": "http.response.start",
+                    "status": 400,
+                    "headers": [
+                        (b"content-type", b"application/json"),
+                        (b"content-length", str(len(body)).encode("ascii")),
+                        (b"x-correlation-id", corr.encode("latin1")),
+                    ]
+                })
+                await send({"type": "http.response.body", "body": body})
+                return
+
+        started = time.perf_counter()
+        status_holder = {"status": 200}
+
+        async def send_wrapper(message):
+            if message["type"] == "http.response.start":
+                status_holder["status"] = message.get("status", 200)
+                resp_headers = list(message.get("headers", []))
+                resp_headers.append((b"x-correlation-id", corr.encode("latin1")))
+                message["headers"] = resp_headers
+            await send(message)
+
+        try:
+            await self.app(scope, receive, send_wrapper)
+        finally:
+            elapsed = (time.perf_counter() - started) * 1000
+            logger.info(json.dumps({
+                "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "level": "INFO",
+                "job_id": None,
+                "correlation_id": corr,
+                "method": method,
+                "path": path,
+                "status_code": status_holder["status"],
+                "latency_ms": round(elapsed, 2)
+            }))
+
+app.add_middleware(RequestContextMiddleware)
 
 @app.exception_handler(EngineError)
 async def engine_error_handler(request: Request, exc: EngineError):
@@ -60,12 +112,6 @@ async def http_error_handler(request: Request, exc: HTTPException):
     detail=exc.detail if isinstance(exc.detail,dict) else {"message":str(exc.detail)}
     code=detail.get("code","HTTP_ERROR")
     return JSONResponse(status_code=exc.status_code,content={"error":{"code":code,"message":detail.get("message",str(exc.detail)),"retryable":False,"details":detail}})
-
-@app.middleware("http")
-async def idempotency_header_guard(request: Request, call_next):
-    if request.method=="POST" and request.url.path.startswith("/api/v1/") and not request.headers.get("Idempotency-Key"):
-        return JSONResponse(status_code=400,content={"error":{"code":"IDEMPOTENCY_KEY_REQUIRED","message":"Every POST request must include an Idempotency-Key header.","retryable":False,"details":{}}})
-    return await call_next(request)
 
 def _idem(request: Request, payload: Any) -> tuple[str,str|None]:
     key=request.headers.get("Idempotency-Key")
@@ -92,9 +138,10 @@ def _video_record(path: Path, filename: str, rights_confirmed: bool) -> dict:
     VIDEOS[vid]=record
     return record
 
-@app.get("/",response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 async def home():
-    return FileResponse(Path(__file__).resolve().parent.parent/"web"/"index.html")
+    html_path = Path(__file__).resolve().parent.parent / "web" / "index.html"
+    return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
 
 @app.get("/health")
 @app.get("/api/v1/health")
@@ -347,7 +394,7 @@ async def render_session(request: Request, background_tasks: BackgroundTasks, se
     if session_id not in SESSIONS: raise HTTPException(404,{"code":"SESSION_NOT_FOUND","message":"Session not found."})
     job_id=str(uuid.uuid4());JOBS[job_id]={"job_id":job_id,"status":"queued","progress":0,"result":None,"error":None,"callback_url":cb}
     response={"job_id":job_id,"status":"queued","progress":0}
-    _store_idem(key,digest,response);background_tasks.add_task(_run_render,job_id,session_id,request.state.correlation_id)
+    _store_idem(key,digest,response);background_tasks.add_task(_run_render,job_id,session_id,getattr(request.state,"correlation_id",None))
     return JSONResponse(status_code=202,content=response)
 
 @app.get("/api/v1/jobs/{job_id}")
