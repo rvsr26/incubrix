@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Word, VideoMetadata, Timeline, InstructionResponse } from './types';
 
+const API_BASE = (typeof window !== 'undefined' && window.location.port && window.location.port !== '8000')
+  ? 'http://localhost:8000'
+  : '';
+
 export default function App() {
   const [video, setVideo] = useState<VideoMetadata | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -21,7 +25,7 @@ export default function App() {
   const renderVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    fetch('/api/v1/health')
+    fetch(`${API_BASE}/api/v1/health`)
       .then(r => r.json())
       .then(() => setApiOnline(true))
       .catch(() => setApiOnline(false));
@@ -47,7 +51,7 @@ export default function App() {
 
   const refreshTimeline = async (sid: string) => {
     try {
-      const res = await fetch(`/api/v1/sessions/${sid}/timeline`);
+      const res = await fetch(`${API_BASE}/api/v1/sessions/${sid}/timeline`);
       const data = await res.json();
       if (res.ok) {
         setTimeline(data.timeline);
@@ -68,7 +72,7 @@ export default function App() {
     fd.append('rights_confirmed', String(rightsConfirmed));
 
     try {
-      const res = await fetch('/api/v1/videos/upload', {
+      const res = await fetch(`${API_BASE}/api/v1/videos/upload`, {
         method: 'POST',
         headers: { 'Idempotency-Key': crypto.randomUUID() },
         body: fd
@@ -93,7 +97,7 @@ export default function App() {
     if (!video) return;
     try {
       const parsedWords = JSON.parse(transcriptJson);
-      const res = await fetch('/api/v1/sessions', {
+      const res = await fetch(`${API_BASE}/api/v1/sessions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,7 +125,7 @@ export default function App() {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/v1/sessions/${sessionId}/instructions`, {
+      const res = await fetch(`${API_BASE}/api/v1/sessions/${sessionId}/instructions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +156,7 @@ export default function App() {
     if (!sessionId) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/v1/sessions/${sessionId}/render`, {
+      const res = await fetch(`${API_BASE}/api/v1/sessions/${sessionId}/render`, {
         method: 'POST',
         headers: { 'Idempotency-Key': crypto.randomUUID() }
       });
@@ -162,7 +166,7 @@ export default function App() {
       const jobId = data.job_id;
       for (let i = 0; i < 300; i++) {
         await new Promise(r => setTimeout(r, 1000));
-        const jRes = await fetch(`/api/v1/jobs/${jobId}`);
+        const jRes = await fetch(`${API_BASE}/api/v1/jobs/${jobId}`);
         const jData = await jRes.json();
         setRenderJob(jData);
         if (jData.status === 'succeeded' || jData.status === 'failed') break;
@@ -334,11 +338,11 @@ export default function App() {
             {renderJob?.status === 'succeeded' && (
               <div style={{ marginTop: '12px' }}>
                 <div style={{ background: '#000', borderRadius: '8px', overflow: 'hidden', aspectRatio: '16/9', display: 'grid', placeItems: 'center' }}>
-                  <video ref={renderVideoRef} src={renderJob.result?.video_url} controls style={{ width: '100%', height: '100%' }} />
+                  <video ref={renderVideoRef} src={renderJob.result?.video_url ? (renderJob.result.video_url.startsWith('http') ? renderJob.result.video_url : `${API_BASE}${renderJob.result.video_url}`) : undefined} controls style={{ width: '100%', height: '100%' }} />
                 </div>
                 <div style={{ display: 'flex', gap: '10px', marginTop: '8px' }}>
-                  <a href={renderJob.result?.video_url} download="rendered_output.mp4" style={{ fontSize: '12px', padding: '6px 12px', borderRadius: '6px', background: '#3b82f6', color: '#fff', textDecoration: 'none' }}>Download MP4</a>
-                  <a href={renderJob.result?.manifest_url} target="_blank" rel="noreferrer" style={{ fontSize: '12px', padding: '6px 12px', borderRadius: '6px', background: '#1e293b', color: '#e2e8f0', textDecoration: 'none' }}>View Manifest</a>
+                  <a href={renderJob.result?.video_url ? (renderJob.result.video_url.startsWith('http') ? renderJob.result.video_url : `${API_BASE}${renderJob.result.video_url}`) : '#'} download="rendered_output.mp4" style={{ fontSize: '12px', padding: '6px 12px', borderRadius: '6px', background: '#3b82f6', color: '#fff', textDecoration: 'none' }}>Download MP4</a>
+                  <a href={renderJob.result?.manifest_url ? (renderJob.result.manifest_url.startsWith('http') ? renderJob.result.manifest_url : `${API_BASE}${renderJob.result.manifest_url}`) : '#'} target="_blank" rel="noreferrer" style={{ fontSize: '12px', padding: '6px 12px', borderRadius: '6px', background: '#1e293b', color: '#e2e8f0', textDecoration: 'none' }}>View Manifest</a>
                 </div>
               </div>
             )}

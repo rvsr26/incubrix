@@ -23,7 +23,11 @@ from app.transcription import get_provider, TranscriptionUnavailable
 logging.basicConfig(level=logging.INFO,format="%(message)s")
 logger=logging.getLogger("incuedit")
 app=FastAPI(title="IncuEdit API",version="1.0.0",description="Prompt-based, reversible video editing engine")
-app.add_middleware(CORSMiddleware,allow_origins=[x.strip() for x in os.getenv("ALLOWED_ORIGINS","http://localhost:8000").split(",")],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
+app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return JSONResponse(status_code=204, content=None)
 app.mount("/static",StaticFiles(directory=Path(__file__).resolve().parent.parent/"web"),name="static")
 _frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _frontend_dist.exists():
